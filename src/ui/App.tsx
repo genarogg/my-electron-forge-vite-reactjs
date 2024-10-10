@@ -1,18 +1,22 @@
-import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
-import { MenuChannels } from 'src/channels/menuChannels';
-import { useRendererListener, useThemeListener } from 'src/ui/hooks';
-import Menu from 'ui/components/Menu';
-import Titlebar from 'ui/components/Titlebar';
-import WindowControls from 'ui/components/WindowControls';
-import Home from 'ui/screens/Home';
+import { MenuChannels } from "src/channels/menuChannels";
+import { useRendererListener, useThemeListener } from "src/ui/hooks";
+import Menu from "ui/components/Menu";
+import Titlebar from "ui/components/Titlebar";
+import WindowControls from "ui/components/WindowControls";
+import Home from "ui/screens/Home";
 
-const onMenuEvent = (_: Electron.IpcRendererEvent, channel: string, ...args: any[]) => {
+const onMenuEvent = (
+  _: Electron.IpcRendererEvent,
+  channel: string,
+  ...args: any[]
+) => {
   electron.ipcRenderer.invoke(channel, args);
 };
 
-export default function App() {
+const App = () => {
   useRendererListener(MenuChannels.MENU_EVENT, onMenuEvent);
 
   useThemeListener();
@@ -32,8 +36,10 @@ export default function App() {
         )}
       </Titlebar>
       <Routes>
-        <Route path='/' Component={Home} />
+        <Route path="/" Component={Home} />
       </Routes>
     </Router>
   );
-}
+};
+
+export default App;

@@ -5,7 +5,6 @@
   "description": "Electron-Forge React Vite Nemesis.",
   "main": ".vite/build/main.js",
   "license": "MIT",
-  "packageManager": "yarn@1.22.21",
   "scripts": {
     "dev": "cross-env NODE_ENV=development electron-forge start",
     "package": "electron-forge package",

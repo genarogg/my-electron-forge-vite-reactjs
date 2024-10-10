@@ -1,18 +1,21 @@
-import React, { createRef, useMemo, useRef } from 'react';
+import React, { createRef, useMemo, useRef } from "react";
 
-import appLogo from 'assets/icons/icon.png';
-import { MenuChannels } from 'src/channels/menuChannels';
-import { fixAcceleratorText } from 'src/menu/accelerators';
-import menuList from 'src/menu/appMenu';
-import { useEventListener } from 'src/ui/hooks';
+import appLogo from "assets/icons/icon.png";
+import { MenuChannels } from "src/channels/menuChannels";
+import { fixAcceleratorText } from "src/menu/accelerators";
+import menuList from "src/menu/appMenu";
+import { useEventListener } from "src/ui/hooks";
 
 export default function Menu() {
   const activeMenuIndex = useRef<number | null>(null);
-  const menusRef = useMemo(() => menuList.map(() => createRef<HTMLDivElement>()), []);
+  const menusRef = useMemo(
+    () => menuList.map(() => createRef<HTMLDivElement>()),
+    []
+  );
 
-  useEventListener('keydown', (event) => handleKeyDown(event));
+  useEventListener("keydown", (event) => handleKeyDown(event));
 
-  useEventListener('mousedown', (event) => handleClickOutside(event));
+  useEventListener("mousedown", (event) => handleClickOutside(event));
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.repeat) return;
@@ -23,32 +26,39 @@ export default function Menu() {
     if (activeMenuIndex.current != null) {
       if (
         menusRef[activeMenuIndex.current].current &&
-        !menusRef[activeMenuIndex.current].current?.contains(event.target as Node)
+        !menusRef[activeMenuIndex.current].current?.contains(
+          event.target as Node
+        )
       ) {
         closeActiveMenu();
       }
     }
   };
 
-  const showMenu = (index: number, e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+  const showMenu = (
+    index: number,
+    e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+  ) => {
     e.stopPropagation();
     e.preventDefault();
 
-    if (menusRef[index].current?.classList.contains('active')) {
+    if (menusRef[index].current?.classList.contains("active")) {
       closeActiveMenu();
     } else {
-      menusRef[index].current?.classList.add('active');
-      menusRef[index].current?.parentElement?.classList.add('active');
+      menusRef[index].current?.classList.add("active");
+      menusRef[index].current?.parentElement?.classList.add("active");
       activeMenuIndex.current = index;
     }
   };
 
   const onMenuHover = (index: number) => {
     if (activeMenuIndex.current != null) {
-      menusRef[activeMenuIndex.current].current?.classList.toggle('active');
-      menusRef[index].current?.classList.toggle('active');
-      menusRef[index].current?.parentElement?.classList.toggle('active');
-      menusRef[activeMenuIndex.current].current?.parentElement?.classList.toggle('active');
+      menusRef[activeMenuIndex.current].current?.classList.toggle("active");
+      menusRef[index].current?.classList.toggle("active");
+      menusRef[index].current?.parentElement?.classList.toggle("active");
+      menusRef[
+        activeMenuIndex.current
+      ].current?.parentElement?.classList.toggle("active");
 
       activeMenuIndex.current = index;
     }
@@ -56,8 +66,10 @@ export default function Menu() {
 
   const closeActiveMenu = () => {
     if (activeMenuIndex.current != null) {
-      menusRef[activeMenuIndex.current].current?.classList.remove('active');
-      menusRef[activeMenuIndex.current].current?.parentElement?.classList.remove('active');
+      menusRef[activeMenuIndex.current].current?.classList.remove("active");
+      menusRef[
+        activeMenuIndex.current
+      ].current?.parentElement?.classList.remove("active");
       activeMenuIndex.current = null;
     }
   };
@@ -69,15 +81,20 @@ export default function Menu() {
       if (actionId === MenuChannels.OPEN_GITHUB_PROFILE) {
         return electron.ipcRenderer.invoke(actionId, menuItem.label);
       }
-      return electron.ipcRenderer.send(MenuChannels.EXECUTE_MENU_ITEM_BY_ID, actionId);
+      return electron.ipcRenderer.send(
+        MenuChannels.EXECUTE_MENU_ITEM_BY_ID,
+        actionId
+      );
     }
   };
 
-  const renderItemAccelerator = (menuItem: Electron.MenuItemConstructorOptions) => {
+  const renderItemAccelerator = (
+    menuItem: Electron.MenuItemConstructorOptions
+  ) => {
     if (menuItem.id === MenuChannels.WEB_ZOOM_IN) {
-      const firstKey = __DARWIN__ ? '⌘' : 'Ctrl';
-      const plus = __DARWIN__ ? '' : '+';
-      const thirdKey = '+';
+      const firstKey = __DARWIN__ ? "⌘" : "Ctrl";
+      const plus = __DARWIN__ ? "" : "+";
+      const thirdKey = "+";
       return `${firstKey}${plus}${thirdKey}`;
     }
 
@@ -87,18 +104,18 @@ export default function Menu() {
   };
 
   return (
-    <section className='window-titlebar-menu'>
+    <section className="window-titlebar-menu">
       {/* Titlebar icon */}
-      <section className='window-titlebar-icon'>
-        <img src={appLogo} alt='App logo' />
+      <section className="window-titlebar-icon">
+        <img src={appLogo} alt="App logo" />
       </section>
 
       {menuList.map(({ label, submenu }, menuIndex) => {
         return (
-          <div className='menu-item' key={`menu_${menuIndex}`}>
+          <div className="menu-item" key={`menu_${menuIndex}`}>
             <div
-              className='menu-title'
-              role='button'
+              className="menu-title"
+              role="button"
               tabIndex={0}
               onClick={(e) => showMenu(menuIndex, e)}
               onKeyDown={(e) => showMenu(menuIndex, e)}
@@ -108,27 +125,32 @@ export default function Menu() {
             >
               {label}
             </div>
-            <div className='menu-popup' ref={menusRef[menuIndex]}>
+            <div className="menu-popup" ref={menusRef[menuIndex]}>
               {Array.isArray(submenu) &&
                 submenu.map((menuItem, menuItemIndex) => {
-                  if (menuItem.type === 'separator') {
+                  if (menuItem.type === "separator") {
                     return (
-                      <div key={`menu_${menuIndex}_popup_item_${menuItemIndex}`} className='popup-item-separator' />
+                      <div
+                        key={`menu_${menuIndex}_popup_item_${menuItemIndex}`}
+                        className="popup-item-separator"
+                      />
                     );
                   }
 
                   return (
                     <div
                       key={`menu_${menuIndex}_popup_item_${menuItemIndex}`}
-                      className='menu-popup-item'
+                      className="menu-popup-item"
                       onMouseDown={(e) => e.preventDefault()}
                       onKeyDown={(e) => e.preventDefault()}
-                      role='button'
+                      role="button"
                       tabIndex={0}
                       onClick={() => handleAction(menuItem)}
                     >
-                      <div className='popup-item-name'>{menuItem.label}</div>
-                      <div className='popup-item-shortcut'>{renderItemAccelerator(menuItem)}</div>
+                      <div className="popup-item-name">{menuItem.label}</div>
+                      <div className="popup-item-shortcut">
+                        {renderItemAccelerator(menuItem)}
+                      </div>
                     </div>
                   );
                 })}
