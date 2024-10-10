@@ -4,7 +4,7 @@ import appLogo from "assets/icons/icon.png";
 import { MenuChannels } from "src/channels/menuChannels";
 import { fixAcceleratorText } from "src/menu/accelerators";
 import menuList from "src/menu/appMenu";
-import { useEventListener } from "src/ui/hooks";
+import { useEventListener } from "src/ui/components/electron/hooks";
 
 export default function Menu() {
   const activeMenuIndex = useRef<number | null>(null);

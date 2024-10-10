@@ -1,0 +1,57 @@
+.window-titlebar {
+  font-size: 14px;
+  height: 28px;
+  -webkit-app-region: drag;
+  user-select: none;
+  position: relative;
+  background-color: #005cc5;
+
+  > section {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    padding: 0.3em 0.65em 0 0.65em;
+
+    img {
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  .menu-item {
+    position: relative;
+
+    &.active .menu-title {
+      background: #044289;
+      color: #d1d5da;
+    }
+  }
+
+  .menu-title {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+    -webkit-app-region: no-drag;
+    color: #e1e4e8;
+
+    &:hover {
+      background-color: #0366d6;
+    }
+  }
+
+  .menu-popup {
+    display: none;
+    position: fixed;
+    background: #f6f8fa;
+    min-width: 70px;
+    padding: 0.25rem 0;
+    border: 1px solid #e1e4e8;
+    box-shadow: 2px 1px 4px rgba(71, 83, 95, 0.19);
+    z-index: 10000;
+
+    &.active {
+      display: block;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 
 import { MenuChannels } from "src/channels/menuChannels";
-import { useRendererListener } from "src/ui/hooks";
+import { useRendererListener } from "src/ui/components/electron/hooks";
 import { WindowState } from "src/windowState";
 
 interface ITitleBarProps {

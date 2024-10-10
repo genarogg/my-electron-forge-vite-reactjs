@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 
 import { MenuChannels } from "src/channels/menuChannels";
 import { WindowState } from "src/windowState";
-import ControlButton from "ui/components/ControlButton";
+import ControlButton from "src/ui/components/electron/topBar/ControlButton";
 
 // These paths are all drawn to a 10x10 view box and replicate the symbols on Windows controls.
 const closePath =
