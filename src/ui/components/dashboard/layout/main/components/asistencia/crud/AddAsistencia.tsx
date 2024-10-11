@@ -4,49 +4,43 @@ import { BtnSubmitBasic } from "@btn";
 import { notify } from "@nano";
 import { BsEnvelopeFill } from "react-icons/bs";
 
-// import { useSimpleNav } from "@components/state/useSimpleNav";
+import { useSimpleNav } from "@components/state/useSimpleNav";
 
 import LayoutForm from "../../layoutForm/LayoutForm";
 
 interface AddAsistenciaProps {
   fn: () => void;
+  tipoAction: string;
 }
 
-const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn }) => {
+const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
   const [formData, setFormData] = useState({
     ci: "",
   });
 
-  // const { state, handleChangeContext } = useSimpleNav();
+  const { handleChangeContext } = useSimpleNav();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(formData);
-    // console.log("URL_BACKEND", `-/asistencia/add`);
 
-    // fetch(`-/asistencia/add`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log("data2", data);
+    try {
+      electron.ipcRenderer
+        .invoke(`asistencia`, { formData, tipoAction })
+        .then((data) => {
+          if (data.type === "success") {
+            setFormData({ ci: "" });
+            notify({ message: data.message, type: data.type });
+            handleChangeContext("Asistencia", "");
+            fn();
 
-    //     if (data.type === "error") {
-    //       notify({ message: data.message, type: data.type });
-    //       return;
-    //     }
-    //     // handleChangeContext("Asistencia", "");
-    //     setFormData({ ci: "" });
-    //     fn();
-    //     notify({ message: data.message, type: data.type });
-    //   })
-    //   .catch((error) => {
-    //     console.log("error", error);
-    //   });
+            return;
+          }
+
+          notify({ message: data.message, type: data.type });
+        });
+    } catch (error) {
+      console.error("Error al recuperar los datos de los empleados:", error);
+    }
   };
 
   return (
@@ -70,7 +64,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn }) => {
             }
           />
 
-          <BtnSubmitBasic text="Registrar asistencia" loading={false} />
+          <BtnSubmitBasic text={`registrar ${tipoAction}`} loading={false} />
         </form>
       </div>
     </LayoutForm>

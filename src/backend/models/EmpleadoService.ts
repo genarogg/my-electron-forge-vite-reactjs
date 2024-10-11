@@ -70,7 +70,6 @@ class EmpleadoService {
       ]);
 
       return this.lastId();
-      
     } catch (error) {
       console.error("Error al crear el empleado:", error);
       throw error;
@@ -111,6 +110,19 @@ class EmpleadoService {
       return this.db.all(selectQuery);
     } catch (error) {
       console.error("Error al obtener los empleados:", error);
+    }
+  }
+
+  // Obtener el empleado por ci
+  public getEmpleadoByCI(ci: number) {
+    const selectQuery = `
+      SELECT * FROM empleado WHERE ci = ?;
+    `;
+
+    try {
+      return this.db.get(selectQuery, [ci]);
+    } catch (error) {
+      console.error("Error al obtener el empleado por ci:", error);
     }
   }
 

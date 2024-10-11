@@ -3,6 +3,8 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { GlobalStateContext } from "@redux";
 import { components } from "./components/Components";
 
+
+
 interface MainSimpleProps {}
 
 const MainSimple: React.FC<MainSimpleProps> = () => {

@@ -11,12 +11,12 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
       sortDescending: '<i class="fa fa-sort-alpha-down"/>',
     },
   },
-  {
-    headerName: "Personal ID",
-    field: "personal_id",
-    filter: true,
-    width: 150,
-  },
+  // {
+  //   headerName: "Personal ID",
+  //   field: "personal_id",
+  //   filter: true,
+  //   width: 150,
+  // },
   {
     headerName: "Nombres",
     field: "nombres",

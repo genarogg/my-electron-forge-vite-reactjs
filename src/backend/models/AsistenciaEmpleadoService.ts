@@ -107,18 +107,19 @@ class AsistenciaEmpleadoService {
   // Método para actualizar la hora de entrada por CI
   public updateHoraEntradaByCI(ci: string) {
     const hora_entrada = moment().format("HH:mm:ss");
+    const vino = "SI"; // Asumiendo que si se actualiza la hora de entrada, el empleado vino
 
     const updateQuery = `
       UPDATE asistencia_empleado
-      SET hora_entrada = ?, updated_at = CURRENT_TIMESTAMP
+      SET hora_entrada = ?, vino = ?, updated_at = CURRENT_TIMESTAMP
       WHERE ci = ?;
     `;
 
     try {
-      this.db.run(updateQuery, [hora_entrada, ci]);
+      this.db.run(updateQuery, [hora_entrada, vino, ci]);
     } catch (error) {
       console.error(
-        "Error al actualizar la hora de entrada en asistencia_empleado:",
+        "Error al actualizar la hora de entrada y vino en asistencia_empleado:",
         error
       );
     }

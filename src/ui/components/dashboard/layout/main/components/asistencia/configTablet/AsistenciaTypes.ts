@@ -1,6 +1,6 @@
 interface AsistenciaTypes {
   id: number;
-  personal_id: number;
+  // personal_id: number;
   nombres: string;
   apellidos: string;
   ci: string;

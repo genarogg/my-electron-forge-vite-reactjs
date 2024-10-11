@@ -1,10 +1,5 @@
 import moment from "moment";
-import {
-  empleadoService,
-  politicaService,
-  empleadoPoliticaService,
-  asistenciaEmpleadoService,
-} from "@model";
+import { empleadoService, asistenciaEmpleadoService } from "@model";
 
 // Función para generar registros de asistencia
 export const generateAsistencia = async () => {

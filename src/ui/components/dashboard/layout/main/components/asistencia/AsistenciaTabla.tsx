@@ -12,9 +12,9 @@ import { BtnNormalBasic } from "@btn";
 interface AsistenciaTableProps {}
 
 const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
-  const registrarUnaAsistencia = () => {
+  const registrarUnaAsistencia = (id: any) => {
     console.log("isActive", isActive);
-    document.getElementById("asideAsistencia")!.classList.toggle("active");
+    document.getElementById(id)!.classList.toggle("active");
     setIsActive(!isActive);
   };
 
@@ -46,10 +46,18 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
   const btnHeader = () => {
     return (
       <div className="btnHeader">
-        <BtnNormalBasic onClick={registrarUnaAsistencia}>
+        <BtnNormalBasic
+          onClick={() => {
+            registrarUnaAsistencia("asideEntrada");
+          }}
+        >
           <span>registrar entrada</span>
         </BtnNormalBasic>
-        <BtnNormalBasic onClick={registrarUnaAsistencia}>
+        <BtnNormalBasic
+          onClick={() => {
+            registrarUnaAsistencia("asideSalida");
+          }}
+        >
           <span>registrar salida</span>
         </BtnNormalBasic>
       </div>
@@ -60,16 +68,27 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
     <>
       <TabletTrabajador
         nameTabla="Asistencia"
-        onClick={() => {
-          registrarUnaAsistencia();
-        }}
+        onClick={() => {}}
         rowData={datos[0]}
         columnDefs={datos[1]}
         ir={"Asistencia"}
         btnHeader={btnHeader()}
       />
-      <div className={`addAsistencia aside`} id="asideAsistencia">
-        <AddAsistencia fn={registrarUnaAsistencia}></AddAsistencia>
+      <div className={`addAsistencia aside`} id="asideEntrada">
+        <AddAsistencia
+          fn={() => {
+            registrarUnaAsistencia("asideEntrada");
+          }}
+          tipoAction="entrada"
+        />
+      </div>
+      <div className={`addAsistencia aside`} id="asideSalida">
+        <AddAsistencia
+          fn={() => {
+            registrarUnaAsistencia("asideSalida");
+          }}
+          tipoAction="salida"
+        />
       </div>
     </>
   );
