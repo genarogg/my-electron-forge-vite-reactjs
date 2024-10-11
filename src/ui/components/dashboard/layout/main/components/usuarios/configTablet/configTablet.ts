@@ -21,22 +21,19 @@ const UsuarioTypesColumnDefs: (
       return null;
     },
   },
-  {
-    headerName: "DATOS DEL USUARIO",
-    children: [
-      { headerName: "Nombres", field: "nombre", filter: true },
-      { headerName: "Apellidos", field: "apellido", filter: true },
-      { headerName: "Email", field: "email", filter: true },
 
-      { headerName: "Role", field: "role", filter: true },
-      { headerName: "C.I", field: "ci", filter: true },
-      {
-        headerName: "Cargo Institucional",
-        field: "cargo_institucional",
-        filter: true,
-      },
-    ],
+  { headerName: "Nombres", field: "nombre", filter: true },
+  { headerName: "Apellidos", field: "apellido", filter: true },
+  { headerName: "Email", field: "email", filter: true },
+
+  { headerName: "Role", field: "role", filter: true },
+  { headerName: "C.I", field: "ci", filter: true },
+  {
+    headerName: "Cargo Institucional",
+    field: "cargo_institucional",
+    filter: true,
   },
+
   {
     headerName: "Acciones",
     cellRenderer: (params: any) => {

@@ -3,8 +3,6 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { GlobalStateContext } from "@redux";
 import { components } from "./components/Components";
 
-
-
 interface MainSimpleProps {}
 
 const MainSimple: React.FC<MainSimpleProps> = () => {
@@ -12,9 +10,13 @@ const MainSimple: React.FC<MainSimpleProps> = () => {
 
   const { state } = useContext(GlobalStateContext);
 
+  console.log(state);
+
   useEffect(() => {
     setContext(state.context);
   }, [state]);
+
+  console.log(components);
 
   const renderComponent = () => {
     for (const section of components) {
@@ -24,7 +26,7 @@ const MainSimple: React.FC<MainSimpleProps> = () => {
         }
       }
     }
-    return <p>Componente no encontrado</p>; // Componente por defecto si no se encuentra coincidencia
+    return <p></p>;
   };
 
   return (

@@ -25,7 +25,7 @@ const login = ipcMain.handle("auth/login", async (event, data) => {
     accion: `Inicio de sesión del usuario ${usuario.email}`,
   });
 
-  return { message: "Inicio de sesión correcto", type: "success" };
+  return { message: "Inicio de sesión correcto", type: "success", usuario };
 });
 
 export default login;

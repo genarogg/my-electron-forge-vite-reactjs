@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
 
+
+
   &,
   * {
     transition: 500ms ease all;
@@ -23,7 +25,7 @@
     outline: none;
     position: relative;
     width: 100%;
-
+    text-transform: capitalize;
     &:active {
       background-color: rgba($color-secondary, 7);
       transform: scale(0.9);

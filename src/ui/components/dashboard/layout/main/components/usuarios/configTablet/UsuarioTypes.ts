@@ -1,6 +1,9 @@
 interface UsuarioTypes {
-  nombres: string;
-  apellidos: string;
+  id?: number;
+  nombres?: string;
+  nombre?: string;
+  apellidos?: string;
+  apellido?: string;
   email: string;
   password: string;
   role: string;

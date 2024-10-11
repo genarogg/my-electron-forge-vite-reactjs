@@ -8,29 +8,36 @@ import { components } from "../../main/components/Components";
 interface SimpleNavProps {}
 
 const SimpleNav: React.FC<SimpleNavProps> = () => {
-  const { selectedContext, handleChangeContext } = useSimpleNav();
+  const { state, selectedContext, handleChangeContext } = useSimpleNav();
 
   const navSections = components
-    .filter((section) => section.titleSecction !== "otros")
-    .map((section) => ({
+    .filter((section: any) => section.titleSecction !== "otros")
+    .map((section: any) => ({
       title: section.titleSecction,
-      items: section.elements.map((element) => ({
-        context: element.context,
-        text: element.context,
-        icon: element.icon,
-      })),
+      items: section.elements
+        .filter((element: any) => {
+          if (element.context === "Usuarios" && state.role !== "admin") {
+            return false;
+          }
+          return true;
+        })
+        .map((element: any) => ({
+          context: element.context,
+          text: element.context,
+          icon: element.icon,
+        })),
     }));
-    
+
   return (
     <div className="container-nav-simple">
-      {navSections.map((section, sectionIndex) => (
+      {navSections.map((section: any, sectionIndex: any) => (
         <div key={sectionIndex}>
           <div className="title-nav">
             <h4>{section.title}</h4>
           </div>
           <nav>
             <ul>
-              {section.items.map((item, itemIndex) => (
+              {section.items.map((item: any, itemIndex: any) => (
                 <li key={itemIndex}>
                   <BtnNormalBasic
                     className={

@@ -25,6 +25,7 @@ const LoginBasic: React.FC<LoginBasicProps> = () => {
     remember: false,
     loading: false,
     sesion: false,
+    rool: "",
   });
 
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const LoginBasic: React.FC<LoginBasicProps> = () => {
   };
 
   if (formData.sesion) {
+    dispatch({ type: ActionTypes.SET_ROLE, payload: formData.rool });
     dispatch({ type: ActionTypes.SET_EMAIL, payload: formData.userName });
     navigate("/dashboard");
   }

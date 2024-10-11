@@ -1,6 +1,5 @@
 import { notify } from "@nano";
 
-
 interface submitLogin {
   formData: {
     userName: string;
@@ -37,12 +36,12 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
         return;
       }
 
-      
-
       notify({ type: result.type, message: result.message });
+
       setFormData((prevFormData) => ({
         ...prevFormData,
         sesion: true,
+        rool: result.usuario.role,
       }));
     })
     .finally(() => {

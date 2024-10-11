@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import TabletTrabajador from "@components/tablet/TabletTrabajador";
-import EstudianteFamiliaTypes from "./configTablet/EstudianteFamiliaTypes";
+import UsuarioTypes from "./configTablet/UsuarioTypes";
 import configTablet from "./configTablet/configTablet";
 import staticDataFake from "./configTablet/staticDataFake";
 
@@ -10,7 +10,7 @@ interface UsuarioTableProps {
 }
 
 const UsuarioTable: React.FC<UsuarioTableProps> = () => {
-  const [usuario, setUsuarios] = useState<EstudianteFamiliaTypes[]>([]);
+  const [usuario, setUsuarios] = useState<UsuarioTypes[]>([]);
 
   useEffect(() => {
     const fetchEmpleado = async () => {
