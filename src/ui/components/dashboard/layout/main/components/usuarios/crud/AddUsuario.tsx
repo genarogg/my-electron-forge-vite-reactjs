@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, SelectInput } from "@form";
 import { BtnSubmitBasic } from "@btn";
 import { notify } from "@nano";
 import LayoutForm from "../../layoutForm/LayoutForm";
 import { useSimpleNav } from "@components/state/useSimpleNav";
+
+import { FaUser } from "react-icons/fa";
 
 interface AddUsuarioProps {}
 
@@ -17,20 +19,31 @@ const AddUsuario: React.FC<AddUsuarioProps> = () => {
     rool: "",
     ci: "",
     cargo_institucional: "",
+    usuario: "",
   });
 
   const rool = [
-    { value: "admin", label: "Admin" },
     { value: "user", label: "User" },
+    { value: "admin", label: "Admin" },
   ];
 
   const { state, handleChangeContext } = useSimpleNav();
 
+  useEffect(() => {
+    const usuario = state.email;
+
+    setUsuarioData({ ...usuarioData, usuario });
+  }, []);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    console.log(state);
+
+    console.log(usuarioData);
+
     electron.ipcRenderer
-      .invoke("estudiante/addEstudiante", usuarioData)
+      .invoke("auth/addUsuario", usuarioData)
       .then((result) => {
         if (result.type === "error") {
           notify({ type: result.type, message: result.message });
@@ -57,7 +70,7 @@ const AddUsuario: React.FC<AddUsuarioProps> = () => {
             <div className="title">
               <h4>Informacion del usuario</h4>
             </div>
-                 <Input
+            <Input
               type="text"
               icono={<FaUser />}
               placeholder="Nombres"
@@ -109,19 +122,7 @@ const AddUsuario: React.FC<AddUsuarioProps> = () => {
                 })
               }
             />
-            <Input
-              type="text"
-              icono={<FaUser />}
-              placeholder="Role"
-              name="role"
-              value={usuarioData.rool}
-              valueChange={(e) =>
-                setUsuarioData({
-                  ...usuarioData,
-                  role: e.target.value,
-                })
-              }
-            />
+
             <Input
               type="text"
               icono={<FaUser />}
@@ -149,7 +150,20 @@ const AddUsuario: React.FC<AddUsuarioProps> = () => {
               }
             />
           </div>
-          </div>
+
+          <SelectInput
+            placeholder="Rool"
+            name="rool"
+            value={usuarioData.rool}
+            valueChange={(e: any) =>
+              setUsuarioData({
+                ...usuarioData,
+                rool: e.value,
+              })
+            }
+            options={rool}
+            content={true}
+          />
 
           <div className="container-footer">
             <BtnSubmitBasic text="Agregar Usuario" />

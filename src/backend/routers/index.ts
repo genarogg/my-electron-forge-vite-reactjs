@@ -4,7 +4,7 @@ dbManager;
 import dataFake from "../fake-data/dataFake";
 dataFake();
 
-import { login } from "../controllers/auth";
+import { login, addUsuario, getUsuarios } from "../controllers/auth";
 import { getEmpleado, addEmpleado } from "../controllers/empleados";
 import {
   generarAsistencia,
@@ -20,6 +20,7 @@ generarAsistencia();
 
 const router = {
   login,
+  addUsuario,
   getEmpleado,
   addEmpleado,
   getAsistencia,
@@ -27,6 +28,7 @@ const router = {
   getBitacora,
   addEstudiante,
   getEstudiante,
+  getUsuarios
 };
 
 export default router;

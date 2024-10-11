@@ -27,6 +27,7 @@ import { FaUserGraduate } from "react-icons/fa6";
 import Inicio from "./inicio/Inicio";
 import { FaUsers } from "react-icons/fa";
 import Usuario from "./usuarios/Usuario";
+import AddUsuario from "./usuarios/crud/AddUsuario";
 
 
 
@@ -113,11 +114,11 @@ const components: any = [
         context: "agregar estudiante",
         icon: <FaCalendarAlt />,
       },
-      // {
-      //   component: AddCocinero,
-      //   context: "agregar cocinero",
-      //   icon: <FaCalendarAlt />,
-      // },
+      {
+        component: AddUsuario,
+        context: "agregar usuario",
+        icon: <FaCalendarAlt />,
+      },
       /* {
         component: AddAsistencia,
         context: "Asistencia",

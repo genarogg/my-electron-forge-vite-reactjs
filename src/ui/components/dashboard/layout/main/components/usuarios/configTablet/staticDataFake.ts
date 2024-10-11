@@ -1,5 +1,5 @@
-import EstudianteFamiliaTypes from "./EstudianteFamiliaTypes";
+import UsuarioTypes from "./UsuarioTypes";
 
-const staticDataFakeEmpleado: EstudianteFamiliaTypes[] = [];
+const staticDataFakeEmpleado: UsuarioTypes[] = [];
 
 export default staticDataFakeEmpleado;
