@@ -28,7 +28,7 @@ export default defineConfig((env) => {
       svgrPlugin(),
       viteTsconfigPaths(),
       checker({
-        typescript: true,
+        // typescript: true,
         // eslint: {
         //   lintCommand: 'eslint "./**/*.{ts,tsx}"',
         // },

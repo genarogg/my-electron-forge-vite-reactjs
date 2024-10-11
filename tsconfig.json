@@ -19,7 +19,18 @@
 
       /* react */
       "@provider": ["./src/ui/components/state/Provider.tsx"],
-      "@redux": ["./src/ui/components/state/Redux.tsx"]
+      "@redux": ["./src/ui/components/state/Redux.tsx"],
+
+      "@nano": ["./src/ui/components/nano/index.tsx"],
+      "@formSkeleton": ["./src/ui/components/nano/skeleton/formSkeleton.tsx"],
+
+      "@form": ["./src/ui/components/nano/form/index.tsx"],
+      "@btn": ["./src/ui/components/nano/btn/index.tsx"],
+
+      /* backend */
+      "@dbManager": ["./src/backend/config/dbManager.ts"],
+      "@model":["./src/backend/models/index.ts"],
+    
     }
   }
 }

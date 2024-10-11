@@ -1,0 +1,18 @@
+.container-menu-tooltip {
+  ul {
+    li {
+      button {
+        /*  @include cuadrado(initial !important); */
+        color: $text-color-white;
+        &:hover {
+          color: $color-secondary !important;
+        }
+      }
+
+      .separador.db {
+        width: 100%;
+        margin: 10px 0px;
+      }
+    }
+  }
+}

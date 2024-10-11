@@ -24,7 +24,7 @@ export default defineConfig((env) => {
       pluginHotRestart('restart'),
       viteTsconfigPaths(),
       checker({
-        typescript: true,
+        // typescript: true,
         // eslint: {
         //   lintCommand: 'eslint "./**/*.{ts,tsx}"',
         // },

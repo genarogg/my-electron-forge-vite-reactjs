@@ -1,11 +1,14 @@
-import { app, BrowserWindow, Menu } from 'electron';
-import path from 'path';
+import { app, BrowserWindow, Menu } from "electron";
+import path from "path";
 
-import windowStateKeeper from 'electron-window-state';
+import windowStateKeeper from "electron-window-state";
 
-import { registerMenuIpc } from 'src/ipc/menuIPC';
-import appMenu from 'src/menu/appMenu';
-import { registerWindowStateChangedEvents } from 'src/windowState';
+import { registerMenuIpc } from "src/ipc/menuIPC";
+
+import appMenu from "src/menu/appMenu";
+import { registerWindowStateChangedEvents } from "src/windowState";
+
+import router from "./backend/routers";
 
 let appWindow: BrowserWindow;
 
@@ -33,18 +36,18 @@ export function createAppWindow(): BrowserWindow {
     show: false,
     autoHideMenuBar: true,
     frame: false,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: "#1a1a1a",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
       nodeIntegrationInWorker: false,
       nodeIntegrationInSubFrames: false,
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, "preload.js"),
     },
   };
 
-  if (process.platform === 'darwin') {
-    windowOptions.titleBarStyle = 'hidden';
+  if (process.platform === "darwin") {
+    windowOptions.titleBarStyle = "hidden";
   }
 
   // Create new window instance
@@ -54,7 +57,9 @@ export function createAppWindow(): BrowserWindow {
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     appWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
   } else {
-    appWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
+    appWindow.loadFile(
+      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
+    );
   }
 
   // Build the application menu
@@ -62,7 +67,7 @@ export function createAppWindow(): BrowserWindow {
   Menu.setApplicationMenu(menu);
 
   // Show window when is ready to
-  appWindow.on('ready-to-show', () => {
+  appWindow.on("ready-to-show", () => {
     appWindow.show();
   });
 
@@ -72,7 +77,7 @@ export function createAppWindow(): BrowserWindow {
   savedWindowState.manage(appWindow);
 
   // Close all windows when main window is closed
-  appWindow.on('close', () => {
+  appWindow.on("close", () => {
     appWindow = null;
     app.quit();
   });
@@ -90,4 +95,5 @@ function registerMainIPC() {
    */
   registerWindowStateChangedEvents(appWindow);
   registerMenuIpc(appWindow);
+  router;
 }
