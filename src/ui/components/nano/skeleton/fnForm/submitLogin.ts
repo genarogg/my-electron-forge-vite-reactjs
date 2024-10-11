@@ -27,7 +27,7 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
     password: formData.password,
   };
 
-  window.electron.ipcRenderer
+  electron.ipcRenderer
     .invoke("auth/login", newData)
     .then((result) => {
       console.log(result);

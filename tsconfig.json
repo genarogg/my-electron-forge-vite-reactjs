@@ -29,8 +29,8 @@
 
       /* backend */
       "@dbManager": ["./src/backend/config/dbManager.ts"],
-      "@model":["./src/backend/models/index.ts"],
-    
+      "@model": ["./src/backend/models/index.ts"],
+      "@components/*": ["./src/ui/components/*"]
     }
   }
 }

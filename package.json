@@ -39,6 +39,8 @@
     "url": "https://github.com/genarrogg/my-electron-forge-vite-reactjs.git"
   },
   "dependencies": {
+    "@ag-grid-community/react": "^32.2.2",
+    "ag-grid-react": "^32.2.2",
     "bcryptjs": "^2.4.3",
     "electron-squirrel-startup": "^1.0.1",
     "electron-window-state": "^5.0.3",
@@ -50,6 +52,7 @@
     "react-router-dom": "^6.23.1",
     "react-select": "^5.8.1",
     "react-toastify": "^10.0.5",
+    "react-transition-group": "^4.4.5",
     "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {

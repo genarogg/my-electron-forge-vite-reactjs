@@ -1,0 +1,23 @@
+.addAsistencia.aside {
+  position: fixed;
+
+  // height: 100%;
+  z-index: 500;
+  top: 176px;
+
+  right: -100%;
+
+  &.active {
+    right: 0;
+  }
+
+  .form-basic {
+    display: flex;
+    height: 100vh;
+    border-radius: 0;
+    background-color: $color-quaternary;
+    border: none;
+    border-left: 1px solid $color-secondary;
+    border-top: 1px solid $color-secondary;
+  }
+}

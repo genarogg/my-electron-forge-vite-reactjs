@@ -1,0 +1,62 @@
+.main-component {
+  &.fade-enter {
+    opacity: 0;
+  }
+
+  &.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+
+  &.fade-exit {
+    opacity: 1;
+  }
+
+  &.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+}
+
+.main-component {
+  &.bounce-enter {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  &.bounce-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 500ms, opacity 500ms;
+  }
+  &.bounce-exit {
+    transform: scale(1);
+    opacity: 1;
+  }
+  &.bounce-exit-active {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 500ms, opacity 500ms;
+  }
+}
+
+.container-main-db {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  background-color: $color-quaternary;
+}
+
+@import "./layoutForm/layoutForm";
+@import "./empleado/crud/addEmpleado";
+@import "./asistencia/crud/addAsistencia";
+@import "./cell-renderers/actionsCellRenderer";
+@import "./inicio/inicio";
+
+.bitacora {
+  .btn-normal-basic {
+    display: none;
+  }
+}

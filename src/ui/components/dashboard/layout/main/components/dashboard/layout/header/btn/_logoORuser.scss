@@ -1,0 +1,27 @@
+.container-logo-user {
+  @include center-flex-xy;
+
+  .container-menu-tooltip {
+    @include center-flex-xy;
+    width: 80px;
+
+    .logo {
+      @include center-flex-xy;
+      //margin-left: 20px;
+    }
+  }
+  img {
+    @include cuadrado(40px);
+    border: 2px solid $color-secondary;
+    border-radius: 50%;
+  }
+
+  .container-img {
+    @include cuadrado(40px);
+    border-radius: 50%;
+
+    svg {
+      @include cuadrado(40px);
+    }
+  }
+}

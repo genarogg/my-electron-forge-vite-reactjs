@@ -5,6 +5,7 @@ import TopBar from "./components/electron/TopBar/TopBar";
 import Provider from "@provider";
 
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 interface AppProps {}
 
@@ -15,8 +16,8 @@ const App: React.FC<AppProps> = () => {
         <TopBar />
         <Router>
           <Routes>
-            {/* <Route path="/" element={<p>asfd</p>} /> */}
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Dashboard />} />
+            {/* <Route path="/" element={<Login />} /> */}
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           </Routes>
         </Router>

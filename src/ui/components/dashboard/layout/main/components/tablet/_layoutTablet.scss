@@ -1,0 +1,92 @@
+.table-container {
+  overflow: hidden;
+  margin: 0 auto;
+  height: 70vh;
+  cursor: grab;
+}
+
+.ag-theme-alpine .ag-body-viewport {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.container-header-tablet {
+  margin-bottom: 10px;
+}
+
+.container-tablet {
+
+  .container-header-tablet {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 42px;
+
+    .btn-normal-basic {
+      max-width: 250px;
+      margin-right: 20px;
+      button {
+        /* color: $text-color-white;
+        background-color: $color-quaternary; */
+        border-radius: 10px;
+        height: 35px;
+
+        border: 1px solid $color-secondary;
+      }
+    }
+
+    input {
+      border: 1px solid $color-secondary;
+      outline: none;
+      border-radius: 10px;
+      height: 35px;
+      width: 280px;
+      padding: 3px 10px;
+      color: $text-color-white;
+      background-color: $color-quaternary;
+    }
+  }
+
+  .ag-paging-panel.ag-unselectable.ag-focus-managed {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: $color-quaternary;
+    right: 0;
+  }
+}
+
+@media (max-height: 1000px) {
+  .table-container {
+    height: 85vh;
+  }
+}
+
+@media (max-height: 900px) {
+  .table-container {
+    height: 85vh;
+  }
+}
+
+@media (max-height: 800px) {
+  .table-container {
+    height: 69vh;
+  }
+}
+
+@media (max-height: 700px) {
+  .table-container {
+    height: 64vh;
+  }
+}
+
+@media (max-height: 600px) {
+  .table-container {
+    height: 61vh;
+  }
+}
+
+@media (max-height: 500px) {
+  .table-container {
+    height: 55vh;
+  }
+}

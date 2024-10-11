@@ -1,0 +1,36 @@
+.container-inicio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+  gap: 45px;
+  /* height: 30vh; */
+  align-items: center;
+  .btn-normal-basic {
+    height: 100px;
+
+    button {
+    }
+  }
+
+  /* .container-main-db {
+    height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+}
+
+.btn-normal-basic button {
+  background-color: rgba(#a6e194, 1);
+  font-weight: 700;
+}
+
+.container-nav-simple nav ul li .selected button {
+  color: #fff;
+
+  .icono {
+    transition: none;
+  }
+}

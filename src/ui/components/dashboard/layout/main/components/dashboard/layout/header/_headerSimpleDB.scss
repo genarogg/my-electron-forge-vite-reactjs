@@ -1,0 +1,87 @@
+.header-simple-db {
+  background-color: $color-quaternary;
+  padding: 10px 20px;
+  //   padding-left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+
+  position: fixed;
+  top: 25px;
+  width: calc(100% - 250px);
+  z-index: 1000;
+
+  .right {
+    @include center-flex-xy;
+    .container-nav {
+      @include center-flex-xy;
+      border-radius: $border-radius;
+      padding: 0 10px;
+      display: none;
+
+      height: 40px;
+      border: 2px solid $color-secondary;
+      ul {
+        display: grid;
+        gap: 25px;
+
+        margin: 0 10px;
+
+        li {
+          button {
+            @include center-flex-xy;
+            @include cuadrado(30px);
+            overflow: hidden;
+          }
+
+          .hamburguer2 .hamburguer .bar {
+            background-color: $text-color-white;
+            width: 22px;
+
+            // margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .left {
+    align-items: center;
+    display: flex;
+
+    .ruta {
+      .ruta-completa {
+        h6 {
+          color: $color-secondary;
+          font-size: 14px;
+          text-transform: capitalize;
+          font-style: italic;
+        }
+      }
+
+      .name-component {
+        h4 {
+          color: $color-secondary;
+          font-size: 18px;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .container-nav {
+    nav {
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          button {
+            color: $text-color-white;
+          }
+        }
+      }
+    }
+  }
+}
