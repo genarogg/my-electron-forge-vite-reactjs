@@ -5,7 +5,7 @@ const addEstudiante = ipcMain.handle(
   "estudiante/addEstudiante",
   async (event, data) => {
     event.defaultPrevented;
-    console.log("data", data);
+    // console.log("data", data);
 
     const {
       estudiante: alumno,
@@ -17,11 +17,13 @@ const addEstudiante = ipcMain.handle(
       usuario,
     } = data;
 
+    console.log("madre", madre);
+
     // insertar los datos de la madre
     const madreId = await estudiante.madreService.createMadre(madre);
-    const padreId = await estudiante.padreService.createPadre(padre);
-
     console.log("madreId", madreId);
+
+    const padreId = await estudiante.padreService.createPadre(padre);
     console.log("padreId", padreId);
 
     try {

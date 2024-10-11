@@ -12,7 +12,7 @@ class MadreService {
     const insertQuery = `
       INSERT INTO madre (
         apellidos, nombres, nacionalidad, cedula, urb_br, direccion_habitacion_av, calle, casa_apartamento, numero_habitacion, referencia, ciudad, parroquia, estado, movil_casa, telefono_personal, telefono_trabajo, email, nivelAcademico, profesion, lugarTrabajo, cargo
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
 
     try {
