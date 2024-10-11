@@ -354,7 +354,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
               content={true}
               name="estatus"
               value={formData.estatus}
-              valueChange={(e) =>
+              valueChange={(e: any) =>
                 setFormData({ ...formData, estatus: e.value })
               }
               options={estatusData}
@@ -384,7 +384,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
               content={true}
               name="inscrito_psuv"
               value={formDataPolitica.inscrito_psuv}
-              valueChange={(e) =>
+              valueChange={(e: any) =>
                 setFormDataPolitica({
                   ...formDataPolitica,
                   inscrito_psuv: e.value,
@@ -438,7 +438,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
               content={true}
               name="tipo_voto"
               value={formDataPolitica.tipo_voto}
-              valueChange={(e) =>
+              valueChange={(e: any) =>
                 setFormDataPolitica({ ...formDataPolitica, tipo_voto: e.value })
               }
               options={tipoVoto}

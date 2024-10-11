@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 // @iconos
 import { HiHome } from "react-icons/hi";
@@ -64,14 +64,15 @@ const components: any = [
     titleSecction: "bitacora",
     elements: [
       {
-        component: AsistenciaTable,
-        context: "bitacora",
-        icon: <MdOutlineUpdate />,
-      },
-      {
         component: AsistenciaTabla,
         context: "Asistencia",
         icon: <TbCheckupList />,
+      },
+
+      {
+        component: AsistenciaTable,
+        context: "acciones",
+        icon: <MdOutlineUpdate />,
       },
     ],
   },

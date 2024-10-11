@@ -7,6 +7,8 @@ import staticDataFake from "./configTablet/staticDataFake";
 
 import AddAsistencia from "./crud/AddAsistencia";
 
+import { BtnNormalBasic } from "@btn";
+
 interface AsistenciaTableProps {}
 
 const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
@@ -23,13 +25,11 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
   useEffect(() => {
     const fetchEmpleado = async () => {
       try {
-        electron.ipcRenderer
-          .invoke("asisgencia/getAsistencia")
-          .then((data) => {
-            if (data.type === "success") {
-              setEmpleado(data.asistencias);
-            }
-          });
+        electron.ipcRenderer.invoke("asisgencia/getAsistencia").then((data) => {
+          if (data.type === "success") {
+            setEmpleado(data.asistencias);
+          }
+        });
       } catch (error) {
         console.error("Error al recuperar los datos de los empleados:", error);
       }
@@ -43,16 +43,30 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
     configTablet,
   ];
 
-  console.log("datos", datos);
+  const btnHeader = () => {
+    return (
+      <div className="btnHeader">
+        <BtnNormalBasic onClick={registrarUnaAsistencia}>
+          <span>registrar entrada</span>
+        </BtnNormalBasic>
+        <BtnNormalBasic onClick={registrarUnaAsistencia}>
+          <span>registrar salida</span>
+        </BtnNormalBasic>
+      </div>
+    );
+  };
 
   return (
     <>
       <TabletTrabajador
         nameTabla="Asistencia"
-        onClick={() => {registrarUnaAsistencia()}}
+        onClick={() => {
+          registrarUnaAsistencia();
+        }}
         rowData={datos[0]}
         columnDefs={datos[1]}
         ir={"Asistencia"}
+        btnHeader={btnHeader()}
       />
       <div className={`addAsistencia aside`} id="asideAsistencia">
         <AddAsistencia fn={registrarUnaAsistencia}></AddAsistencia>

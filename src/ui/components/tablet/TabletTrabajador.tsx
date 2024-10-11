@@ -15,6 +15,7 @@ interface TabletTrabajadorProps {
   columnDefs: any[];
   ir: string;
   subname?: string;
+  btnHeader?: React.ReactNode;
 }
 
 const TabletTrabajador: React.FC<TabletTrabajadorProps> = ({
@@ -24,6 +25,7 @@ const TabletTrabajador: React.FC<TabletTrabajadorProps> = ({
   rowData,
   columnDefs,
   ir,
+  btnHeader,
 }) => {
   const { state, handleChangeContext } = useSimpleNav();
   const [quickFilterText, setQuickFilterText] = useState<string>("");
@@ -36,11 +38,15 @@ const TabletTrabajador: React.FC<TabletTrabajadorProps> = ({
   return (
     <LayoutTablet>
       <div className={`container-header-tablet ${nameTabla}`}>
-        <BtnNormalBasic onClick={combinedFunction}>
-          <span>
-            {subname} {nameTabla}
-          </span>
-        </BtnNormalBasic>
+        {btnHeader ? (
+          btnHeader
+        ) : (
+          <BtnNormalBasic onClick={combinedFunction}>
+            <span>
+              {subname} {nameTabla}
+            </span>
+          </BtnNormalBasic>
+        )}
         <input
           type="text"
           placeholder="Buscar..."

@@ -12,10 +12,21 @@
 
 .container-header-tablet {
   margin-bottom: 10px;
+
+  .btnHeader {
+    display: flex;
+
+    .btn-normal-basic {
+      max-width: 250px !important;
+
+      button {
+        width: 200px;
+      }
+    }
+  }
 }
 
 .container-tablet {
-
   .container-header-tablet {
     display: flex;
     justify-content: flex-end;

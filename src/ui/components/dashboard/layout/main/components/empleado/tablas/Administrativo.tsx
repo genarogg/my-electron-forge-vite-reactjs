@@ -1,3 +1,5 @@
+import React from "react";
+
 import EmpleadoTable from "../Empleado";
 
 interface AdministrativoProps {}

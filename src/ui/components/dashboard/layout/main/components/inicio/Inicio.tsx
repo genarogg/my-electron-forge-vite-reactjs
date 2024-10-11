@@ -1,3 +1,5 @@
+import React from 'react'
+
 interface InicioProps {}
 
 import { BtnNormalBasic } from "@btn";
