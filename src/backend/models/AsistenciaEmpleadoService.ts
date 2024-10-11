@@ -50,6 +50,22 @@ class AsistenciaEmpleadoService {
     }
   }
 
+  // Método para obtener una entrada por CI
+  public getAsistenciaEmpleadoByCI(ci: string) {
+    const selectQuery = `
+      SELECT * FROM asistencia_empleado WHERE ci = ?;
+    `;
+
+    try {
+      return this.db.get(selectQuery, [ci]);
+    } catch (error) {
+      console.error(
+        "Error al obtener la entrada en asistencia_empleado por CI:",
+        error
+      );
+    }
+  }
+
   // Método para obtener todas las entradas
   public getAllAsistenciaEmpleado() {
     const selectQuery = `

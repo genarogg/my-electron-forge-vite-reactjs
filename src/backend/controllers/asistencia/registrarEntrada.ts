@@ -14,10 +14,17 @@ const registrarEntrada = ipcMain.handle("asistencia", async (event, data) => {
     return { message: "Empleado no encontrado", type: "error" };
   }
 
+  const asistenciaEmpleado = await asistenciaEmpleadoService.getAsistenciaEmpleadoByCI(ci)
+
   if (tipoAction === "entrada") {
     asistenciaEmpleadoService.updateHoraEntradaByCI(ci);
 
     return { message: "registro de entrada correcto", type: "success" };
+  }
+
+
+  if(asistenciaEmpleado.hora_entrada === "00:00:00") {
+    return { message: "No se puede registrar la salida sin haber registrado la entrada", type: "error" };
   }
 
   if (tipoAction === "salida") {

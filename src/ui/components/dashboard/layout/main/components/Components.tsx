@@ -9,11 +9,10 @@ import { PiStudentBold } from "react-icons/pi";
 
 import { FaUsersLine } from "react-icons/fa6";
 
-import AsistenciaTabla from "./asistencia/AsistenciaTabla";
-
 import { TbCheckupList } from "react-icons/tb";
 import { MdOutlineUpdate } from "react-icons/md";
 import AddEmpleado from "./empleado/crud/AddEmpleado";
+import AddEstudiante from "./estudiante/crud/AddEstudiante";
 
 import Docente from "./empleado/tablas/Docente";
 import Obrero from "./empleado/tablas/Obrero";
@@ -21,7 +20,10 @@ import Administrativo from "./empleado/tablas/Administrativo";
 import Cocinero from "./empleado/tablas/Cocineros";
 
 import AsistenciaTable from "./asistencia/AsistenciaTabla";
+import TabletBitacora from "./bitacora/TabletBitacora";
 
+import EstudianteTable from "./estudiante/Estudiante";
+import { FaUserGraduate } from "react-icons/fa6";
 import Inicio from "./inicio/Inicio";
 const components: any = [
   {
@@ -61,16 +63,26 @@ const components: any = [
     ],
   },
   {
+    titleSecction: "Estudiante",
+    elements: [
+      {
+        component: EstudianteTable,
+        context: "Estudiantes",
+        icon: <FaUserGraduate />,
+      },
+    ],
+  },
+  {
     titleSecction: "bitacora",
     elements: [
       {
-        component: AsistenciaTabla,
+        component: AsistenciaTable,
         context: "Asistencia",
         icon: <TbCheckupList />,
       },
 
       {
-        component: AsistenciaTable,
+        component: TabletBitacora,
         context: "acciones",
         icon: <MdOutlineUpdate />,
       },
@@ -85,11 +97,11 @@ const components: any = [
         icon: <FaCalendarAlt />,
       },
 
-      // {
-      //   component: AddAdministrativo,
-      //   context: "agregar administrativo",
-      //   icon: <FaCalendarAlt />,
-      // },
+      {
+        component: AddEstudiante,
+        context: "agregar estudiante",
+        icon: <FaCalendarAlt />,
+      },
       // {
       //   component: AddCocinero,
       //   context: "agregar cocinero",
