@@ -24,6 +24,16 @@ const crearUsuario = async () => {
     ci,
     cargo_institucional
   );
+
+  userService.createUser(
+    usuarioNombre + "2",
+    usuarioApellido + "2",
+    usuarioEmail + "2",
+    hashedPassword,
+    "user",
+    ci + "2",
+    cargo_institucional + "2"
+  );
 };
 
 export default crearUsuario;
