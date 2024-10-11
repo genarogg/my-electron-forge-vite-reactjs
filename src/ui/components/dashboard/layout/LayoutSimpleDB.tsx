@@ -3,7 +3,7 @@ import { GlobalStateContext } from "@redux";
 import AsideSimple from "./aside/AsideSimple";
 import React, { useContext } from "react";
 import HeaderSimpleDB from "./header/HeaderSimpleDB";
-
+import { ToastContainer } from "react-toastify";
 import MainSimple from "./main/MainSimple";
 
 interface LayoutSimpleDBProps {}
@@ -21,6 +21,7 @@ const LayoutSimpleDB: React.FC<LayoutSimpleDBProps> = () => {
           <MainSimple />
         </main>
       </div>
+      <ToastContainer />
     </div>
     // </LayoutElectron>
   );
