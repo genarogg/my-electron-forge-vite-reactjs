@@ -1,0 +1,24 @@
+.add-estudiante {
+  .form-basic {
+    .container-info-user,
+    .container-info-vive {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 20px;
+      column-gap: 25px;
+
+      .title {
+        grid-column: span 2;
+        height: 40px;
+        text-transform: capitalize;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .grid-2-columns {
+      grid-column: span 2;
+    }
+  }
+}
