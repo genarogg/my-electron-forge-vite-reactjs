@@ -73,6 +73,34 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
     cargo: "",
   });
 
+  const [datosPadre, setDatosPadre] = useState({
+    apellidos: "",
+    nombres: "",
+    nacionalidad: "",
+    cedula: "",
+
+    urb_br: "",
+    direccion_habitacion_av: "",
+    calle: "",
+    casa_apartamento: "",
+    numero_habitacion: "",
+    referencia: "",
+    ciudad: "",
+
+    parroquia: "",
+    estado: "",
+    movil_casa: "",
+
+    telefono_personal: "",
+    telefono_trabajo: "",
+    email: "",
+
+    nivelAcademico: "",
+    profesion: "",
+    lugarTrabajo: "",
+    cargo: "",
+  });
+
   const { state, handleChangeContext } = useSimpleNav();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -747,6 +775,300 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             <div className="title">
               <h4>Informacion del Padre</h4>
             </div>
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Apellidos"
+              name="apellidos"
+              value={datosPadre.apellidos}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  apellidos: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Nombres"
+              name="nombres"
+              value={datosPadre.nombres}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  nombres: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <SelectInput
+              icono={<FaUser />}
+              placeholder="Nacionalidad"
+              content={true}
+              name="nacionalidad"
+              value={datosPadre.nacionalidad}
+              valueChange={(e: any) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  nacionalidad: e.value,
+                })
+              }
+              options={nacionalidad}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Cédula"
+              name="cedula"
+              value={datosPadre.cedula}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  cedula: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Urbanización/Barrio"
+              name="urb_br"
+              value={datosPadre.urb_br}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  urb_br: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Dirección de Habitación (Avenida)"
+              name="direccion_habitacion_av"
+              value={datosPadre.direccion_habitacion_av}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  direccion_habitacion_av: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Calle"
+              name="calle"
+              value={datosPadre.calle}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  calle: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Casa/Apartamento"
+              name="casa_apartamento"
+              value={datosPadre.casa_apartamento}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  casa_apartamento: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Número de Habitación"
+              name="numero_habitacion"
+              value={datosPadre.numero_habitacion}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  numero_habitacion: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Referencia"
+              name="referencia"
+              value={datosPadre.referencia}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  referencia: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Ciudad"
+              name="ciudad"
+              value={datosPadre.ciudad}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  ciudad: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Parroquia"
+              name="parroquia"
+              value={datosPadre.parroquia}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  parroquia: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Estado"
+              name="estado"
+              value={datosPadre.estado}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  estado: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Teléfono de Casa"
+              name="movil_casa"
+              value={datosPadre.movil_casa}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  movil_casa: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Teléfono Personal"
+              name="telefono_personal"
+              value={datosPadre.telefono_personal}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  telefono_personal: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Teléfono de Trabajo"
+              name="telefono_trabajo"
+              value={datosPadre.telefono_trabajo}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  telefono_trabajo: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="email"
+              icono={<FaUser />}
+              placeholder="Email"
+              name="email"
+              value={datosPadre.email}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  email: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Nivel Académico"
+              name="nivelAcademico"
+              value={datosPadre.nivelAcademico}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  nivelAcademico: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Profesión"
+              name="profesion"
+              value={datosPadre.profesion}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  profesion: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Lugar de Trabajo"
+              name="lugarTrabajo"
+              value={datosPadre.lugarTrabajo}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  lugarTrabajo: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Cargo"
+              name="cargo"
+              value={datosPadre.cargo}
+              valueChange={(e) =>
+                setDatosPadre({
+                  ...datosPadre,
+                  cargo: e.target.value,
+                })
+              }
+              required={false}
+            />
           </div>
         </form>
       </div>
