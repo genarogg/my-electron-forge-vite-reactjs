@@ -7,7 +7,12 @@ import { createEmpleadoTableQuery } from "./tablaEmpleado";
 import { createPoliticaTableQuery } from "./tablaPolitica";
 import { createBitacoraTableQuery } from "./tablaBitacora";
 import { createAsistenciaEmpleadoTableQuery } from "./tablaAsistenciaEmpleado";
-
+import {
+  createEstudianteTableQuery,
+  createRepresentanteTableQuery,
+  createMadreTableQuery,
+  createPadreTableQuery,
+} from "./tablaEstudiante";
 class DatabaseManager {
   private db: Database;
 
@@ -25,6 +30,10 @@ class DatabaseManager {
     this.createTable(createPoliticaTableQuery);
     this.createTable(createBitacoraTableQuery);
     this.createTable(createAsistenciaEmpleadoTableQuery);
+    this.createTable(createEstudianteTableQuery);
+    this.createTable(createRepresentanteTableQuery);
+    this.createTable(createMadreTableQuery);
+    this.createTable(createPadreTableQuery);
   }
 
   private createTable(query: any) {

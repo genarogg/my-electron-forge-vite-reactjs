@@ -129,14 +129,22 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
     cargo: "",
   });
 
+  const [periodoEscolar, setPeriodoEscolar] = useState({
+    inicio_periodo_escolar: "",
+    fin_periodo_escolar: "",
+  });
   const { state, handleChangeContext } = useSimpleNav();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newData = {
-      empleado: { ...estudianteData },
-
+      estudiante: { ...estudianteData },
+      viaDeAcceso: { ...viaDeAccesoData },
+      madre: { ...datosMadre },
+      padre: { ...datosPadre },
+      representante: { ...datosRepresentante },
+      periodoEscolar: { ...periodoEscolar },
       usuario: state.email,
     };
 
@@ -1407,6 +1415,42 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
                 setDatosRepresentante({
                   ...datosRepresentante,
                   cargo: e.target.value,
+                })
+              }
+              required={false}
+            />
+          </div>
+
+          <div className="container-info-vive">
+            <div className="title">
+              <h4>periodo</h4>
+            </div>
+            <Input
+              hasContentState={true}
+              type="date"
+              icono={<FaUser />}
+              placeholder="Inicio del Periodo Escolar"
+              name="inicio_periodo_escolar"
+              value={periodoEscolar.inicio_periodo_escolar}
+              valueChange={(e) =>
+                setPeriodoEscolar({
+                  ...periodoEscolar,
+                  inicio_periodo_escolar: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              hasContentState={true}
+              type="date"
+              icono={<FaUser />}
+              placeholder="Fin del Periodo Escolar"
+              name="fin_periodo_escolar"
+              value={periodoEscolar.fin_periodo_escolar}
+              valueChange={(e) =>
+                setPeriodoEscolar({
+                  ...periodoEscolar,
+                  fin_periodo_escolar: e.target.value,
                 })
               }
               required={false}
