@@ -4,6 +4,7 @@ import empleadoService from "./EmpleadoService";
 import politicaService from "./PoliticaService";
 import empleadoPoliticaService from "./EmpleadoPoliticaService";
 import asistenciaEmpleadoService from "./AsistenciaEmpleadoService";
+import estudiante from "./EstudianteService";
 
 export {
   userService,
@@ -11,5 +12,6 @@ export {
   empleadoService,
   politicaService,
   empleadoPoliticaService,
-  asistenciaEmpleadoService
+  asistenciaEmpleadoService,
+  estudiante,
 };

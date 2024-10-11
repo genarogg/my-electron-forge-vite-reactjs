@@ -4,6 +4,9 @@ import { SQL } from "sql-template-strings";
 const createEstudianteTableQuery = SQL`
   CREATE TABLE IF NOT EXISTS estudiante (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    madre_id INTEGER,
+    padre_id INTEGER,
+    reprecentante_id INTEGER,
     apellidos TEXT NOT NULL,
     nombres TEXT NOT NULL,
     sex TEXT,
@@ -22,22 +25,16 @@ const createEstudianteTableQuery = SQL`
     talla_pantalon TEXT,
     talla_zapato TEXT,
     via_de_acceso_al_lugar_donde_vive TEXT,
-    reprecentante_legal_id INTEGER,
     con_quien_vive TEXT,
     condicion_especial TEXT,
     observacion_de_condicion TEXT,
     el_estudiante_consume_medicamento TEXT,
     observacion_de_medicamento TEXT,
-    madre_id INTEGER,
-    padre_id INTEGER,
     inicio_periodo_escolar TEXT,
     fin_periodo_escolar TEXT,
     usuario TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (madre_id) REFERENCES madre(id),
-    FOREIGN KEY (padre_id) REFERENCES padre(id),
-    FOREIGN KEY (reprecentante_legal_id) REFERENCES representante(id)
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
 `;
 
@@ -130,4 +127,4 @@ export {
   createRepresentanteTableQuery,
   createMadreTableQuery,
   createPadreTableQuery,
-}
+};
