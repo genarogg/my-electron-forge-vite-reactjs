@@ -54,9 +54,37 @@
       display: block;
     }
   }
+
+  &-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #ccc;
+
+    .control {
+      padding: 0 1.15em;
+      font-size: 0.875em;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      -webkit-app-region: no-drag;
+
+      &.close:hover {
+       
+        background: rgb(255, 77, 100);
+        color: #ccc;
+      }
+
+      &:hover {
+        background: rgb(0, 0, 0);
+        color: #ccc;
+      }
+    }
+  }
 }
 
-.window-titlebar{
+.window-titlebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -64,4 +92,8 @@
 
   display: flex;
   justify-content: space-between;
+}
+
+.menu-item{
+  display: none;
 }

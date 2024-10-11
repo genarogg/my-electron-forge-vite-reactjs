@@ -1,18 +1,24 @@
 import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from "ui/screens/Home";
+import TopBar from "./components/electron/TopBar/TopBar";
+import Provider from "@provider";
 
-import TopBar from "./components/electron/topBar/TopBar";
+interface AppProps {}
 
-const App = () => {
+const App: React.FC<AppProps> = () => {
   return (
-    <Router>
-      <TopBar />
-      <Routes>
-        <Route path="/" Component={Home} />
-      </Routes>
-    </Router>
+    <>
+      <Provider>
+        <TopBar />
+        <Router>
+          <Routes>
+            <Route path="/" element={<p>adsf</p>} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          </Routes>
+        </Router>
+      </Provider>
+    </>
   );
 };
 

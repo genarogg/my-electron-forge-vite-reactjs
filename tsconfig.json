@@ -15,7 +15,11 @@
     "paths": {
       "assets/*": ["./assets/*"],
       "src/*": ["./src/*"],
-      "ui/*": ["./src/ui/*"]
+      "ui/*": ["./src/ui/*"],
+
+      /* react */
+      "@provider": ["./src/ui/components/state/Provider.tsx"],
+      "@redux": ["./src/ui/components/state/Redux.tsx"]
     }
   }
 }
