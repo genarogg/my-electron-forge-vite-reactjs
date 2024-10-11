@@ -40,9 +40,21 @@ class PadreService {
         data.lugarTrabajo,
         data.cargo,
       ]);
+
+      return this.lastId();
     } catch (error) {
       console.error("Error al crear la entrada en la tabla padre:", error);
       throw error;
+    }
+  }
+
+  public lastId() {
+    const selectQuery = `SELECT id FROM padre ORDER BY id DESC LIMIT 1;`;
+
+    try {
+      return this.db.get(selectQuery);
+    } catch (error) {
+      console.error("Error al obtener el ultimo padre:", error);
     }
   }
 

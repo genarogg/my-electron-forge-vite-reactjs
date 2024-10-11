@@ -10,7 +10,7 @@ const getEmpleado = ipcMain.handle(
 
       // Filtrar empleados por tipo_empleado
       const filteredEmpleados = empleados.filter(
-        (empleado) => empleado.tipo_empleado === data.tipo_empleado
+        (empleado:any) => empleado.tipo_empleado === data.tipo_empleado
       );
 
       console.log("Empleados filtrados:", filteredEmpleados);

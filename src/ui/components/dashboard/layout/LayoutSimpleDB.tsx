@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import HeaderSimpleDB from "./header/HeaderSimpleDB";
 import { ToastContainer } from "react-toastify";
 import MainSimple from "./main/MainSimple";
-import DemoEnviar from "./main/DemoEnviar";
+// import DemoEnviar from "./main/DemoEnviar";
 
 interface LayoutSimpleDBProps {}
 
@@ -20,7 +20,7 @@ const LayoutSimpleDB: React.FC<LayoutSimpleDBProps> = () => {
         <HeaderSimpleDB />
 
         <main className="main-simple">
-          <DemoEnviar />
+          {/* <DemoEnviar /> */}
           <MainSimple />
         </main>
       </div>

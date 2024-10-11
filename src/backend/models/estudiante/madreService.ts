@@ -39,9 +39,21 @@ class MadreService {
         data.lugarTrabajo,
         data.cargo,
       ]);
+
+      return this.lastId();
     } catch (error) {
       console.error("Error al crear la entrada en la tabla madre:", error);
       throw error;
+    }
+  }
+
+  public lastId() {
+    const selectQuery = `SELECT id FROM madre ORDER BY id DESC LIMIT 1;`;
+
+    try {
+      return this.db.get(selectQuery);
+    } catch (error) {
+      console.error("Error al obtener el ultimo madre:", error);
     }
   }
 

@@ -1,33 +1,38 @@
 import { ipcMain } from "electron";
-import { estudiante } from "@model";
+import { estudianteModel } from "@model";
 
 const addEstudiante = ipcMain.handle(
   "estudiante/addEstudiante",
   async (event, data) => {
     event.defaultPrevented;
-    // console.log("data", data);
-
-    const {
-      estudiante: alumno,
-      viaDeAcceso,
-      madre,
-      padre,
-      representante,
-      periodoEscolar,
-      usuario,
-    } = data;
-
-    console.log("madre", madre);
-
-    // insertar los datos de la madre
-    const madreId = await estudiante.madreService.createMadre(madre);
-    console.log("madreId", madreId);
-
-    const padreId = await estudiante.padreService.createPadre(padre);
-    console.log("padreId", padreId);
 
     try {
+      console.log("data", data);
+
+      const { madre, padre, representante, alumno } = data;
+
+      // insertar los datos de la madre
+      const madreId = await estudianteModel.madreService.createMadre(madre);
+      // console.log("madreId", madreId);
+
+      const padreId = await estudianteModel.padreService.createPadre(padre);
+      // console.log("padreId", padreId);
+
+      const representanteId = await estudianteModel.representanteService.createRepresentante(
+        representante
+      );
+
+      const prepareData = {
+        madre_id: madreId.id,
+        padre_id: padreId.id,
+        reprecentante_id: representanteId.id,
+        ...alumno,
+      };
+
+      await estudianteModel.estudianteService.createEstudiante(prepareData);
+
       return {
+        message: "Estudiante creado correctamente",
         type: "success",
       };
     } catch (error) {

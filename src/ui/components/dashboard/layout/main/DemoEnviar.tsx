@@ -35,7 +35,7 @@ const DemoEnviar: React.FC<DemoEnviarProps> = () => {
     madre: {
       apellidos: "156",
       nombres: "156156",
-      nacionalidad: "",
+      nacionalidad: "543",
       cedula: "6615",
       urb_br: "615156",
       direccion_habitacion_av: "15",
@@ -82,7 +82,7 @@ const DemoEnviar: React.FC<DemoEnviarProps> = () => {
       parentesco: "15",
       apellidos: "1515",
       nombres: "1515",
-      nacionalidad: "",
+      nacionalidad: "adsfa",
       cedula: "515",
       urb_br: "1515",
       fecha_nacimiento: "0024-03-23",
@@ -106,13 +106,25 @@ const DemoEnviar: React.FC<DemoEnviarProps> = () => {
       inicio_periodo_escolar: "0651-01-05",
       fin_periodo_escolar: "0001-05-06",
     },
-    usuario: "demo@demo.com",
+    usuario: { usuario: "demo@demo.com" },
+  };
+
+  const treeData = {
+    madre: newData.madre,
+    padre: newData.padre,
+    representante: newData.representante,
+    alumno: {
+      ...newData.estudiante,
+      ...newData.viaDeAcceso,
+      ...newData.periodoEscolar,
+      ...newData.usuario,
+    },
   };
   return (
     <>
       <button
         onClick={() => {
-          electron.ipcRenderer.invoke("estudiante/addEstudiante", newData);
+          electron.ipcRenderer.invoke("estudiante/addEstudiante", treeData);
         }}
       >
         EnviarDemo
