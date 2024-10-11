@@ -101,6 +101,34 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
     cargo: "",
   });
 
+  const [datosRepresentante, setDatosRepresentante] = useState({
+    parentesco: "",
+    apellidos: "",
+    nombres: "",
+    nacionalidad: "",
+    cedula: "",
+
+    urb_br: "",
+    fecha_nacimiento: "",
+    direccion_habitacion_av: "",
+    calle: "",
+    casa_apartamento: "",
+    numero_habitacion: "",
+
+    referencia: "",
+    ciudad: "",
+    parroquia: "",
+    estado: "",
+    telefono_habitacion: "",
+    telefono_personal: "",
+
+    email: "",
+    profesion: "",
+    lugarTrabajo: "",
+    telefono_trabajo: "",
+    cargo: "",
+  });
+
   const { state, handleChangeContext } = useSimpleNav();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -1069,6 +1097,324 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
               }
               required={false}
             />
+          </div>
+
+          <div className="container-info-vive">
+            <div className="title">
+              <h4>Informacion del Reprecentante legal</h4>
+            </div>
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Parentesco"
+              name="parentesco"
+              value={datosRepresentante.parentesco}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  parentesco: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Apellidos"
+              name="apellidos"
+              value={datosRepresentante.apellidos}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  apellidos: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Nombres"
+              name="nombres"
+              value={datosRepresentante.nombres}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  nombres: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <SelectInput
+              icono={<FaUser />}
+              placeholder="Nacionalidad"
+              content={true}
+              name="nacionalidad"
+              value={datosRepresentante.nacionalidad}
+              valueChange={(e: any) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  nacionalidad: e.value,
+                })
+              }
+              options={nacionalidad}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Cédula"
+              name="cedula"
+              value={datosRepresentante.cedula}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  cedula: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Urbanización/Barrio"
+              name="urb_br"
+              value={datosRepresentante.urb_br}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  urb_br: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="date"
+              icono={<FaUser />}
+              placeholder="Fecha de Nacimiento"
+              name="fecha_nacimiento"
+              value={datosRepresentante.fecha_nacimiento}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  fecha_nacimiento: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Dirección de Habitación (Avenida)"
+              name="direccion_habitacion_av"
+              value={datosRepresentante.direccion_habitacion_av}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  direccion_habitacion_av: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Calle"
+              name="calle"
+              value={datosRepresentante.calle}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  calle: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Casa/Apartamento"
+              name="casa_apartamento"
+              value={datosRepresentante.casa_apartamento}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  casa_apartamento: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Número de Habitación"
+              name="numero_habitacion"
+              value={datosRepresentante.numero_habitacion}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  numero_habitacion: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Referencia"
+              name="referencia"
+              value={datosRepresentante.referencia}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  referencia: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Ciudad"
+              name="ciudad"
+              value={datosRepresentante.ciudad}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  ciudad: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Parroquia"
+              name="parroquia"
+              value={datosRepresentante.parroquia}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  parroquia: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Estado"
+              name="estado"
+              value={datosRepresentante.estado}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  estado: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Teléfono de Habitación"
+              name="telefono_habitacion"
+              value={datosRepresentante.telefono_habitacion}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  telefono_habitacion: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Teléfono Personal"
+              name="telefono_personal"
+              value={datosRepresentante.telefono_personal}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  telefono_personal: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="email"
+              icono={<FaUser />}
+              placeholder="Email"
+              name="email"
+              value={datosRepresentante.email}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  email: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Profesión"
+              name="profesion"
+              value={datosRepresentante.profesion}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  profesion: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Lugar de Trabajo"
+              name="lugarTrabajo"
+              value={datosRepresentante.lugarTrabajo}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  lugarTrabajo: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="number"
+              icono={<FaUser />}
+              placeholder="Teléfono de Trabajo"
+              name="telefono_trabajo"
+              value={datosRepresentante.telefono_trabajo}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  telefono_trabajo: e.target.value,
+                })
+              }
+              required={false}
+            />
+            <Input
+              type="text"
+              icono={<FaUser />}
+              placeholder="Cargo"
+              name="cargo"
+              value={datosRepresentante.cargo}
+              valueChange={(e) =>
+                setDatosRepresentante({
+                  ...datosRepresentante,
+                  cargo: e.target.value,
+                })
+              }
+              required={false}
+            />
+          </div>
+
+          <div className="container-footer">
+            <BtnSubmitBasic text="Agregar Estudiante" />
           </div>
         </form>
       </div>
