@@ -13,15 +13,25 @@ class UserService {
     apellido: string,
     email: string,
     password: string,
-    role: string
+    role: string,
+    ci: string,
+    cargo_institucional: string
   ) {
     const insertQuery = `
-      INSERT INTO users (nombre, apellido, email, password, role)
-      VALUES (?, ?, ?, ?, ?);
+      INSERT INTO users (nombre, apellido, email, password, role, ci, cargo_institucional)
+      VALUES (?, ?, ?, ?, ?, ?, ?);
     `;
 
     try {
-      this.db.run(insertQuery, [nombre, apellido, email, password, role]);
+      this.db.run(insertQuery, [
+        nombre,
+        apellido,
+        email,
+        password,
+        role,
+        ci,
+        cargo_institucional,
+      ]);
     } catch (error) {
       console.error("Error al crear el usuario:", error);
       throw error;
@@ -74,16 +84,27 @@ class UserService {
     apellido: string,
     email: string,
     password: string,
-    role: string
+    role: string,
+    ci: string,
+    cargo_institucional: string
   ) {
     const updateQuery = `
       UPDATE users
-      SET nombre = ?, apellido = ?, email = ?, password = ?, role = ?, updated_at = CURRENT_TIMESTAMP
+      SET nombre = ?, apellido = ?, email = ?, password = ?, role = ?, ci = ?, cargo_institucional = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?;
     `;
 
     try {
-      this.db.run(updateQuery, [nombre, apellido, email, password, role, id]);
+      this.db.run(updateQuery, [
+        nombre,
+        apellido,
+        email,
+        password,
+        role,
+        ci,
+        cargo_institucional,
+        id,
+      ]);
     } catch (error) {
       console.error("Error al actualizar el usuario:", error);
     }

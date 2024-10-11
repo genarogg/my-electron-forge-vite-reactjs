@@ -25,6 +25,11 @@ import TabletBitacora from "./bitacora/TabletBitacora";
 import EstudianteTable from "./estudiante/Estudiante";
 import { FaUserGraduate } from "react-icons/fa6";
 import Inicio from "./inicio/Inicio";
+import { FaUsers } from "react-icons/fa";
+import Usuario from "./usuarios/Usuario";
+
+
+
 const components: any = [
   {
     titleSecction: "inicio",
@@ -33,6 +38,12 @@ const components: any = [
         component: Inicio,
         context: "Inicio",
         icon: <HiHome />,
+      },
+
+      {
+        component: Usuario,
+        context: "Usuarios",
+        icon: <FaUsers />,
       },
     ],
   },

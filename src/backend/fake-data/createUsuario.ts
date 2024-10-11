@@ -8,6 +8,8 @@ const crearUsuario = async () => {
   const usuarioEmail = "demo@demo.com";
   const usuarioPassword = "demo123";
   const usuarioRole = "admin";
+  const ci = "123456";
+  const cargo_institucional = "Director";
 
   // Generar un hash de la contraseña
   const hashedPassword = bcrypt.hashSync(usuarioPassword, 10);
@@ -18,7 +20,9 @@ const crearUsuario = async () => {
     usuarioApellido,
     usuarioEmail,
     hashedPassword,
-    usuarioRole
+    usuarioRole,
+    ci,
+    cargo_institucional
   );
 };
 

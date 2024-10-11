@@ -8,6 +8,8 @@ export const createUsersTableQuery = SQL`
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
     role TEXT NOT NULL,
+    ci TEXT NOT NULL UNIQUE,
+    cargo_institucional TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
