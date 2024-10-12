@@ -29,8 +29,8 @@ import { FaUsers } from "react-icons/fa";
 import Usuario from "./usuarios/Usuario";
 import AddUsuario from "./usuarios/crud/AddUsuario";
 
-
-
+import Plantel from "./institucion/Plantel";
+import { BiSolidInstitution } from "react-icons/bi";
 const components: any = [
   {
     titleSecction: "inicio",
@@ -39,6 +39,12 @@ const components: any = [
         component: Inicio,
         context: "Inicio",
         icon: <HiHome />,
+      },
+
+      {
+        component: Plantel,
+        context: "Plantel",
+        icon: <BiSolidInstitution />,
       },
 
       {

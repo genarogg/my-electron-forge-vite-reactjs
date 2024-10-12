@@ -13,6 +13,7 @@ export const createPlantelTableQuery = SQL`
     nombre_plantel TEXT,
     direccion_institucion TEXT,
     nivel_modalidad TEXT,
-    dependencia_administrativa TEXT
+    dependencia_administrativa TEXT,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
   );
 `;
