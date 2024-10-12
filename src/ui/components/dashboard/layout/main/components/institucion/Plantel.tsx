@@ -74,7 +74,7 @@ const Plantel: React.FC<PlantelProps> = () => {
 
   return (
     <LayoutForm>
-      <div className="container-form add-institucion">
+      <div className="container-form add-estudiante add-institucion">
         <form
           className="form-basic"
           onSubmit={(e) => {
@@ -82,7 +82,7 @@ const Plantel: React.FC<PlantelProps> = () => {
             onSubmit(e);
           }}
         >
-          <div className="container-info-institucion">
+          <div className="container-info-user">
             <div className="title">
               <h4>Información del Plantel</h4>
             </div>
@@ -95,6 +95,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, cod_cir: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -105,6 +106,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, nombre_circuito: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -115,6 +117,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, comuna: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -125,6 +128,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, consejo_comunal: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -135,6 +139,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, codigo_plantel: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -145,6 +150,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, codigo_estadistico: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -155,6 +161,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, codigo_dependencia: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -165,6 +172,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, nombre_plantel: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -178,6 +186,7 @@ const Plantel: React.FC<PlantelProps> = () => {
                   direccion_institucion: e.target.value,
                 })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -188,6 +197,7 @@ const Plantel: React.FC<PlantelProps> = () => {
               valueChange={(e) =>
                 setFormData({ ...formData, nivel_modalidad: e.target.value })
               }
+              hasContentState={true}
             />
             <Input
               type="text"
@@ -201,12 +211,13 @@ const Plantel: React.FC<PlantelProps> = () => {
                   dependencia_administrativa: e.target.value,
                 })
               }
+              hasContentState={true}
             />
           </div>
 
           <div className="container-footer">
             {state.role === "admin" && (
-              <BtnSubmitBasic text="Agregar Plantel" />
+              <BtnSubmitBasic text="Actualizar info" />
             )}
           </div>
         </form>

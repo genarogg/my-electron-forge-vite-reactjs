@@ -15,7 +15,7 @@ import {
 import { getBitacora } from "../controllers/bitacora";
 
 import { addEstudiante, getEstudiante } from "../controllers/estudiante";
-import { addUpdatePlantel } from "../controllers/plantel";
+import { addUpdatePlantel, getPlantel } from "../controllers/plantel";
 
 generarAsistencia();
 
@@ -30,7 +30,8 @@ const router = {
   addEstudiante,
   getEstudiante,
   getUsuarios,
-  addUpdatePlantel
+  addUpdatePlantel,
+  getPlantel,
 };
 
 export default router;
