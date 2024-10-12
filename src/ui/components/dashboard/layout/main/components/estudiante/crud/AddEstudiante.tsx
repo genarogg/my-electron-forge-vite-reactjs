@@ -4,7 +4,32 @@ import { BtnSubmitBasic } from "@btn";
 import { notify } from "@nano";
 import LayoutForm from "../../layoutForm/LayoutForm";
 import { useSimpleNav } from "@components/state/useSimpleNav";
-import { FaUser } from "react-icons/fa";
+import {
+  FaUser,
+  FaIdCard,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaGraduationCap,
+  FaBriefcase,
+  FaBuilding,
+  FaBirthdayCake,
+  FaShoePrints,
+  FaSchool,
+  FaRulerVertical,
+  FaWeight,
+  FaRulerCombined,
+  FaHandPaper,
+  FaChild,
+  FaTshirt,
+  FaRoad,
+  FaWheelchair,
+  FaHome,
+  FaNotesMedical,
+  FaPills,
+  FaUserTie,
+  FaCalendarAlt,
+} from "react-icons/fa";
 
 interface AddEstudianteProps {}
 
@@ -189,7 +214,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             <Input
               type="text"
               icono={<FaUser />}
-              placeholder="apellidos"
+              placeholder="Apellidos"
               name="apellidos"
               value={estudianteData.apellidos}
               valueChange={(e) =>
@@ -214,7 +239,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <SelectInput
               icono={<FaUser />}
-              placeholder="sexo:"
+              placeholder="Sexo:"
               content={true}
               name="sexo"
               value={estudianteData.sex}
@@ -224,8 +249,8 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
               options={sex}
             />
             <SelectInput
-              icono={<FaUser />}
-              placeholder="nacionalidad:"
+              icono={<FaIdCard />}
+              placeholder="Nacionalidad:"
               content={true}
               name="nacionalidad"
               value={estudianteData.nacionalidad}
@@ -239,8 +264,8 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
-              placeholder="cedula de identidad"
+              icono={<FaIdCard />}
+              placeholder="Cédula de Identidad"
               name="ci"
               value={estudianteData.ci}
               valueChange={(e) =>
@@ -253,7 +278,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             <Input
               type="date"
               placeholder="Fecha de Nacimiento"
-              icono={<FaUser />}
+              icono={<FaBirthdayCake />}
               name="fecha_nac"
               hasContentState={true}
               value={estudianteData.fecha_nacimiento}
@@ -266,7 +291,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Lugar de Nacimiento"
               name="lugar_nacimiento"
               value={estudianteData.lugar_nacimiento}
@@ -279,7 +304,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Entidad Federativa"
               name="entd_federativa"
               value={estudianteData.entd_federativa}
@@ -292,7 +317,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaSchool />}
               placeholder="Plantel de Procedencia"
               name="plantel_de_procedencia"
               value={estudianteData.plantel_de_procedencia}
@@ -305,7 +330,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaRulerVertical />}
               placeholder="Talla"
               name="talla"
               value={estudianteData.talla}
@@ -318,7 +343,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaWeight />}
               placeholder="Peso"
               name="peso"
               value={estudianteData.peso}
@@ -331,7 +356,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaRulerCombined />}
               placeholder="Medidas"
               name="medidas"
               value={estudianteData.medidas}
@@ -344,7 +369,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaChild />}
               placeholder="Edad"
               name="edad"
               value={estudianteData.edad}
@@ -357,7 +382,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaHandPaper />}
               placeholder="Lateralidad"
               name="lateralidad"
               value={estudianteData.lateralidad}
@@ -370,7 +395,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaTshirt />}
               placeholder="Talla de Camisa"
               name="talla_camisa"
               value={estudianteData.talla_camisa}
@@ -383,7 +408,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaSchool />}
               placeholder="Talla de Pantalón"
               name="talla_pantalon"
               value={estudianteData.talla_pantalon}
@@ -396,7 +421,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaShoePrints />}
               placeholder="Talla de Zapato"
               name="talla_zapato"
               value={estudianteData.talla_zapato}
@@ -416,7 +441,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             <Input
               className="grid-2-columns"
               type="text"
-              icono={<FaUser />}
+              icono={<FaRoad />}
               placeholder="Vía de acceso al lugar donde vive"
               name="via_de_acceso_al_lugar_donde_vive"
               value={viaDeAccesoData.via_de_acceso_al_lugar_donde_vive}
@@ -429,7 +454,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaUserTie />}
               placeholder="Representante Legal"
               name="reprecentante_legal"
               value={viaDeAccesoData.reprecentante_legal}
@@ -442,7 +467,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaHome />}
               placeholder="Con quién vive"
               name="con_quien_vive"
               value={viaDeAccesoData.con_quien_vive}
@@ -455,7 +480,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaWheelchair />}
               placeholder="Condición Especial"
               name="condicion_especial"
               value={viaDeAccesoData.condicion_especial}
@@ -468,7 +493,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaNotesMedical />}
               placeholder="Observación de Condición"
               name="observacion_de_condicion"
               value={viaDeAccesoData.observacion_de_condicion}
@@ -481,7 +506,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaPills />}
               placeholder="El estudiante consume medicamento"
               name="el_estudiante_consume_medicamento"
               value={viaDeAccesoData.el_estudiante_consume_medicamento}
@@ -494,7 +519,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaNotesMedical />}
               placeholder="Observación de Medicamento"
               name="observacion_de_medicamento"
               value={viaDeAccesoData.observacion_de_medicamento}
@@ -540,8 +565,8 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
               required={false}
             />
             <SelectInput
-              icono={<FaUser />}
-              placeholder="nacionalidad:"
+              icono={<FaIdCard />}
+              placeholder="Nacionalidad:"
               content={true}
               name="nacionalidad"
               value={datosMadre.nacionalidad}
@@ -555,7 +580,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaIdCard />}
               placeholder="Cédula"
               name="cedula"
               value={datosMadre.cedula}
@@ -569,7 +594,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Urbanización/Barrio"
               name="urb_br"
               value={datosMadre.urb_br}
@@ -583,7 +608,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Dirección de Habitación (Avenida)"
               name="direccion_habitacion_av"
               value={datosMadre.direccion_habitacion_av}
@@ -597,7 +622,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Calle"
               name="calle"
               value={datosMadre.calle}
@@ -611,7 +636,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Casa/Apartamento"
               name="casa_apartamento"
               value={datosMadre.casa_apartamento}
@@ -625,7 +650,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Número de Habitación"
               name="numero_habitacion"
               value={datosMadre.numero_habitacion}
@@ -639,7 +664,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Referencia"
               name="referencia"
               value={datosMadre.referencia}
@@ -653,7 +678,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Ciudad"
               name="ciudad"
               value={datosMadre.ciudad}
@@ -667,7 +692,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Parroquia"
               name="parroquia"
               value={datosMadre.parroquia}
@@ -681,7 +706,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Estado"
               name="estado"
               value={datosMadre.estado}
@@ -695,8 +720,8 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
-              placeholder="telefono de casa"
+              icono={<FaPhone />}
+              placeholder="Teléfono de Casa"
               name="movil_casa"
               value={datosMadre.movil_casa}
               valueChange={(e) =>
@@ -709,7 +734,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono Personal"
               name="telefono_personal"
               value={datosMadre.telefono_personal}
@@ -723,7 +748,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono de Trabajo"
               name="telefono_trabajo"
               value={datosMadre.telefono_trabajo}
@@ -737,7 +762,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="email"
-              icono={<FaUser />}
+              icono={<FaEnvelope />}
               placeholder="Email"
               name="email"
               value={datosMadre.email}
@@ -751,7 +776,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaGraduationCap />}
               placeholder="Nivel Académico"
               name="nivelAcademico"
               value={datosMadre.nivelAcademico}
@@ -765,7 +790,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBriefcase />}
               placeholder="Profesión"
               name="profesion"
               value={datosMadre.profesion}
@@ -779,7 +804,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBuilding />}
               placeholder="Lugar de Trabajo"
               name="lugarTrabajo"
               value={datosMadre.lugarTrabajo}
@@ -840,7 +865,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
               required={false}
             />
             <SelectInput
-              icono={<FaUser />}
+              icono={<FaIdCard />}
               placeholder="Nacionalidad"
               content={true}
               name="nacionalidad"
@@ -855,7 +880,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaIdCard />}
               placeholder="Cédula"
               name="cedula"
               value={datosPadre.cedula}
@@ -869,7 +894,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Urbanización/Barrio"
               name="urb_br"
               value={datosPadre.urb_br}
@@ -883,7 +908,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Dirección de Habitación (Avenida)"
               name="direccion_habitacion_av"
               value={datosPadre.direccion_habitacion_av}
@@ -897,7 +922,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Calle"
               name="calle"
               value={datosPadre.calle}
@@ -911,7 +936,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Casa/Apartamento"
               name="casa_apartamento"
               value={datosPadre.casa_apartamento}
@@ -925,7 +950,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Número de Habitación"
               name="numero_habitacion"
               value={datosPadre.numero_habitacion}
@@ -939,7 +964,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Referencia"
               name="referencia"
               value={datosPadre.referencia}
@@ -953,7 +978,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Ciudad"
               name="ciudad"
               value={datosPadre.ciudad}
@@ -967,7 +992,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Parroquia"
               name="parroquia"
               value={datosPadre.parroquia}
@@ -981,7 +1006,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Estado"
               name="estado"
               value={datosPadre.estado}
@@ -995,7 +1020,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono de Casa"
               name="movil_casa"
               value={datosPadre.movil_casa}
@@ -1009,7 +1034,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono Personal"
               name="telefono_personal"
               value={datosPadre.telefono_personal}
@@ -1023,7 +1048,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono de Trabajo"
               name="telefono_trabajo"
               value={datosPadre.telefono_trabajo}
@@ -1037,7 +1062,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="email"
-              icono={<FaUser />}
+              icono={<FaEnvelope />}
               placeholder="Email"
               name="email"
               value={datosPadre.email}
@@ -1051,7 +1076,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaGraduationCap />}
               placeholder="Nivel Académico"
               name="nivelAcademico"
               value={datosPadre.nivelAcademico}
@@ -1065,7 +1090,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBriefcase />}
               placeholder="Profesión"
               name="profesion"
               value={datosPadre.profesion}
@@ -1079,7 +1104,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBuilding />}
               placeholder="Lugar de Trabajo"
               name="lugarTrabajo"
               value={datosPadre.lugarTrabajo}
@@ -1109,7 +1134,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
 
           <div className="container-info-vive">
             <div className="title">
-              <h4>Informacion del Reprecentante legal</h4>
+              <h4>Informacion del Representante legal</h4>
             </div>
             <Input
               type="text"
@@ -1154,7 +1179,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
               required={false}
             />
             <SelectInput
-              icono={<FaUser />}
+              icono={<FaIdCard />}
               placeholder="Nacionalidad"
               content={true}
               name="nacionalidad"
@@ -1169,7 +1194,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaIdCard />}
               placeholder="Cédula"
               name="cedula"
               value={datosRepresentante.cedula}
@@ -1183,7 +1208,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Urbanización/Barrio"
               name="urb_br"
               value={datosRepresentante.urb_br}
@@ -1197,7 +1222,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="date"
-              icono={<FaUser />}
+              icono={<FaBirthdayCake />}
               placeholder="Fecha de Nacimiento"
               name="fecha_nacimiento"
               value={datosRepresentante.fecha_nacimiento}
@@ -1211,7 +1236,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Dirección de Habitación (Avenida)"
               name="direccion_habitacion_av"
               value={datosRepresentante.direccion_habitacion_av}
@@ -1225,7 +1250,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Calle"
               name="calle"
               value={datosRepresentante.calle}
@@ -1239,7 +1264,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Casa/Apartamento"
               name="casa_apartamento"
               value={datosRepresentante.casa_apartamento}
@@ -1253,7 +1278,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Número de Habitación"
               name="numero_habitacion"
               value={datosRepresentante.numero_habitacion}
@@ -1267,7 +1292,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Referencia"
               name="referencia"
               value={datosRepresentante.referencia}
@@ -1281,7 +1306,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Ciudad"
               name="ciudad"
               value={datosRepresentante.ciudad}
@@ -1295,7 +1320,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Parroquia"
               name="parroquia"
               value={datosRepresentante.parroquia}
@@ -1309,7 +1334,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaMapMarkerAlt />}
               placeholder="Estado"
               name="estado"
               value={datosRepresentante.estado}
@@ -1323,7 +1348,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono de Habitación"
               name="telefono_habitacion"
               value={datosRepresentante.telefono_habitacion}
@@ -1337,7 +1362,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono Personal"
               name="telefono_personal"
               value={datosRepresentante.telefono_personal}
@@ -1351,7 +1376,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="email"
-              icono={<FaUser />}
+              icono={<FaEnvelope />}
               placeholder="Email"
               name="email"
               value={datosRepresentante.email}
@@ -1365,7 +1390,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBriefcase />}
               placeholder="Profesión"
               name="profesion"
               value={datosRepresentante.profesion}
@@ -1379,7 +1404,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="text"
-              icono={<FaUser />}
+              icono={<FaBuilding />}
               placeholder="Lugar de Trabajo"
               name="lugarTrabajo"
               value={datosRepresentante.lugarTrabajo}
@@ -1393,7 +1418,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             />
             <Input
               type="number"
-              icono={<FaUser />}
+              icono={<FaPhone />}
               placeholder="Teléfono de Trabajo"
               name="telefono_trabajo"
               value={datosRepresentante.telefono_trabajo}
@@ -1423,12 +1448,12 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
 
           <div className="container-info-vive">
             <div className="title">
-              <h4>periodo</h4>
+              <h4>Periodo</h4>
             </div>
             <Input
               hasContentState={true}
               type="date"
-              icono={<FaUser />}
+              icono={<FaCalendarAlt />}
               placeholder="Inicio del Periodo Escolar"
               name="inicio_periodo_escolar"
               value={periodoEscolar.inicio_periodo_escolar}
@@ -1443,7 +1468,7 @@ const AddEstudiante: React.FC<AddEstudianteProps> = () => {
             <Input
               hasContentState={true}
               type="date"
-              icono={<FaUser />}
+              icono={<FaCalendarAlt />}
               placeholder="Fin del Periodo Escolar"
               name="fin_periodo_escolar"
               value={periodoEscolar.fin_periodo_escolar}
