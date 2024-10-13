@@ -73,7 +73,7 @@ const loadStateFromLocalStorage = (): State | undefined => {
       return undefined;
     }
     const loadedState = JSON.parse(serializedState);
-    return { ...loadedState, active_aside: false }; // Asegúrate de que active_aside esté presente
+    return { ...loadedState, active_aside: false, context: "Inicio" }; // Asegúrate de que active_aside esté presente
   } catch (e) {
     console.error("Error loading state from localStorage", e);
     return undefined;

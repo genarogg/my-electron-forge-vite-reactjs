@@ -25,6 +25,32 @@
 .btn-normal-basic button {
   background-color: rgba(#a6e194, 1);
   font-weight: 700;
+
+  .icono {
+    transition: $transition !important;
+
+    svg {
+      color: $color-secondary;
+    }
+  }
+
+  .text {
+    transition: $transition !important;
+  }
+
+  &:hover {
+    background-color: rgba($color-secondary, 0.8);
+
+    .icono {
+      svg {
+        color: #fff;
+      }
+    }
+
+    .text {
+      color: #fff;
+    }
+  }
 }
 
 .container-nav-simple nav ul li .selected button {

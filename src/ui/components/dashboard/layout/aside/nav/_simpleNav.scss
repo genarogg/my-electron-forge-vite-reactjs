@@ -43,6 +43,12 @@
           button {
             background-color: $color-secondary;
             border: 1px solid #ffffff00;
+
+            .icono {
+              svg {
+                color: #fff;
+              }
+            }
           }
         }
 
