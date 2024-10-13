@@ -11,6 +11,14 @@ const getPlantel = ipcMain.handle("plantel/getPlantel", async (event, data) => {
 
     console.log("plantelData", plantelData);
 
+    if (!plantelData) {
+      return {
+        message: "No se encontraron datos del plantel",
+        type: "error",
+        plantel: [],
+      };
+    }
+
     return {
       message: "Datos del plantel recuperados correctamente",
       type: "success",
