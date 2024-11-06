@@ -9,6 +9,7 @@ export const createAsistenciaEmpleadoTableQuery = SQL`
     ci TEXT NOT NULL,
     fecha TEXT NOT NULL,
     hora_entrada TEXT,
+    hora_almuerzo TEXT default '00:00:00',
     hora_salida TEXT,
     vino TEXT default 'NO',
     -- ANADIDO

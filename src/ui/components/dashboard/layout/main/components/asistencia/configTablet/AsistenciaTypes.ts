@@ -6,6 +6,7 @@ interface AsistenciaTypes {
   ci: string;
   fecha: string;
   hora_entrada?: string;
+  hora_almuerzo?: string;
   hora_salida?: string;
   vino?: string;
 }

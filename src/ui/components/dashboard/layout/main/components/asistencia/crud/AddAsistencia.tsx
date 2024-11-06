@@ -5,7 +5,7 @@ import { notify } from "@nano";
 import { BsEnvelopeFill } from "react-icons/bs";
 
 import { useSimpleNav } from "@components/state/useSimpleNav";
-
+import { HiIdentification } from "react-icons/hi2";
 import LayoutForm from "../../layoutForm/LayoutForm";
 
 interface AddAsistenciaProps {
@@ -55,7 +55,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
         >
           <Input
             type="text"
-            icono={<BsEnvelopeFill />}
+            icono={<HiIdentification />}
             placeholder="cedula de identidad"
             name="ci"
             value={formData.ci}

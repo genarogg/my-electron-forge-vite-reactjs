@@ -9,7 +9,7 @@ import AddAsistencia from "./crud/AddAsistencia";
 
 import { BtnNormalBasic } from "@btn";
 
-interface AsistenciaTableProps {}
+interface AsistenciaTableProps { }
 
 const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
   const registrarUnaAsistencia = (id: any) => {
@@ -55,6 +55,13 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
         </BtnNormalBasic>
         <BtnNormalBasic
           onClick={() => {
+            registrarUnaAsistencia("asideAlmuerzo");
+          }}
+        >
+          <span>registrar almuerzo</span>
+        </BtnNormalBasic>
+        <BtnNormalBasic
+          onClick={() => {
             registrarUnaAsistencia("asideSalida");
           }}
         >
@@ -68,7 +75,7 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
     <>
       <TabletTrabajador
         nameTabla="Asistencia"
-        onClick={() => {}}
+        onClick={() => { }}
         rowData={datos[0]}
         columnDefs={datos[1]}
         ir={"Asistencia"}
@@ -80,6 +87,14 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
             registrarUnaAsistencia("asideEntrada");
           }}
           tipoAction="entrada"
+        />
+      </div>
+      <div className={`addAsistencia aside`} id="asideAlmuerzo">
+        <AddAsistencia
+          fn={() => {
+            registrarUnaAsistencia("asideAlmuerzo");
+          }}
+          tipoAction="almuerzo"
         />
       </div>
       <div className={`addAsistencia aside`} id="asideSalida">

@@ -48,6 +48,12 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
     width: 150,
   },
   {
+    headerName: "Hora de Almuerzo",
+    field: "hora_almuerzo",
+    filter: true,
+    width: 150,
+  },
+  {
     headerName: "Hora de Salida",
     field: "hora_salida",
     filter: true,

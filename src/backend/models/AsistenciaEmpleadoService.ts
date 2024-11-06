@@ -11,8 +11,8 @@ class AsistenciaEmpleadoService {
   // Método para crear una nueva entrada en asistencia_empleado
   public createAsistenciaEmpleado(data: any) {
     const insertQuery = `
-      INSERT INTO asistencia_empleado (personal_id, nombres, apellidos, ci, fecha, hora_entrada, hora_salida, vino)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+      INSERT INTO asistencia_empleado (personal_id, nombres, apellidos, ci, fecha, hora_entrada, hora_almuerzo, hora_salida, vino)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
 
     const fecha = moment().format("YYYY-MM-DD");
@@ -25,6 +25,7 @@ class AsistenciaEmpleadoService {
         data.ci,
         fecha,
         data.hora_entrada || "00:00:00",
+        data.hora_almuerzo || "00:00:00",
         data.hora_salida || "00:00:00",
         data.vino || "NO",
       ]);
@@ -140,6 +141,25 @@ class AsistenciaEmpleadoService {
       );
     }
   }
+
+  // Método para actualizar la hora de almuerzo por CI
+public updateHoraAlmuerzoByCI(ci: string) {
+  const hora_almuerzo = moment().format("HH:mm:ss");
+  const updateQuery = `
+    UPDATE asistencia_empleado
+    SET hora_almuerzo = ?, updated_at = CURRENT_TIMESTAMP
+    WHERE ci = ?;
+  `;
+
+  try {
+    this.db.run(updateQuery, [hora_almuerzo, ci]);
+  } catch (error) {
+    console.error(
+      "Error al actualizar la hora de almuerzo en asistencia_empleado:",
+      error
+    );
+  }
+}
 
   // Método para actualizar la hora de salida por CI
   public updateHoraSalidaByCI(ci: string) {
