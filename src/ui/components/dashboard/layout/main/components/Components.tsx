@@ -35,6 +35,8 @@ import { BiSolidInstitution } from "react-icons/bi";
 import { BiNetworkChart } from "react-icons/bi";
 import { MdWorkHistory } from "react-icons/md";
 
+import SolicitudPasantia from "./pasantiaSolicitud/SolicitudPasantia";
+
 const components: any = [
   {
     titleSecction: "inicio",
@@ -62,7 +64,7 @@ const components: any = [
     titleSecction: "Pasantias",
     elements: [
       {
-        component: Inicio,
+        component: SolicitudPasantia,
         context: "solicitud",
         icon: <BiNetworkChart />,
 

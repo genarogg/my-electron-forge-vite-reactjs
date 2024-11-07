@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 import TabletTrabajador from "@components/tablet/TabletTrabajador";
-import EstudianteFamiliaTypes from "./configTablet/EstudianteFamiliaTypes";
+import SolicitudPasantiaTypes from "./configTablet/SolicitudPasantiaTypes";
 import configTablet from "./configTablet/configTablet";
-import staticDataFake from "./configTablet/staticDataFake.ts";
+import staticDataFake from "./configTablet/staticDataFake";
 
 interface SolicitudPasantiaTableProps {
   nameTablet: string;
 }
 
 const SolicitudPasantia: React.FC<SolicitudPasantiaTableProps> = ({}) => {
-  const [solicitudPasante, setsolicitudPasante] = useState<SolicitudPasantiaTableProps[]>([]);
+  const [solicitudPasante, setsolicitudPasante] = useState<SolicitudPasantiaTypes[]>([]);
 
   useEffect(() => {
     const fetchEmpleado = async () => {
