@@ -17,6 +17,8 @@ import { getBitacora } from "../controllers/bitacora";
 import { addEstudiante, getEstudiante } from "../controllers/estudiante";
 import { addUpdatePlantel, getPlantel } from "../controllers/plantel";
 
+import { addSolicitudPasantia } from "../controllers/pasantia";
+
 generarAsistencia();
 
 const router = {
@@ -31,7 +33,7 @@ const router = {
   getEstudiante,
   getUsuarios,
   addUpdatePlantel,
-  getPlantel,
+  getPlantel, addSolicitudPasantia
 };
 
 export default router;

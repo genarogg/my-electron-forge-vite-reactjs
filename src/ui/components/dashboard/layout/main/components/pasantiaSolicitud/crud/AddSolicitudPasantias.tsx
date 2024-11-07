@@ -17,11 +17,12 @@ import {
   FaIdCard,
 } from "react-icons/fa";
 
-interface AddSolicitudPasantiasProps {}
+interface AddSolicitudPasantiasProps { }
 
 const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
-  const initialSolicitudState = {
-    id: 1,
+
+
+  const [formData, setFormData] = useState({
     nombreEmpresa: "",
     direccionEmpresa: "",
     puntoDeReferencia: "",
@@ -48,26 +49,11 @@ const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
     sintesisCurricular: false,
     aprobado: false,
     motivo: "",
-  };
+  });
 
-  const [formData, setFormData] = useState(initialSolicitudState);
+  const { state, handleChangeContext } = useSimpleNav();
 
-  const { state } = useSimpleNav();
 
-  useEffect(() => {
-    const fetchSolicitud = async () => {
-      try {
-        const data = await electron.ipcRenderer.invoke("solicitud/getSolicitud");
-        if (data.type === "success") {
-          setFormData(data.solicitud);
-        }
-      } catch (error) {
-        console.error("Error al recuperar los datos de la solicitud:", error);
-      }
-    };
-
-    fetchSolicitud();
-  }, []);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -78,7 +64,7 @@ const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
     };
 
     electron.ipcRenderer
-      .invoke("solicitud/addUpdateSolicitud", newData)
+      .invoke("solicitud/addSolicitudPasantia", newData)
       .then((result) => {
         if (result.type === "error") {
           notify({ type: result.type, message: result.message });
@@ -86,14 +72,17 @@ const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
         }
 
         notify({ message: result.message, type: result.type });
+        handleChangeContext(state.sub_context, "");
       })
-      .finally(() => {});
+      .finally(() => { });
   };
 
   const booleanOptions = [
     { value: true, label: "Sí" },
     { value: false, label: "No" },
   ];
+
+  console.log("formData", formData);
 
   return (
     <LayoutForm>
@@ -408,9 +397,7 @@ const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
           </div>
 
           <div className="container-footer">
-            {state.role === "admin" && (
-              <BtnSubmitBasic text="Actualizar info" />
-            )}
+            <BtnSubmitBasic text="Procesar solicitud" />
           </div>
         </form>
       </div>

@@ -6,6 +6,7 @@ import empleadoPoliticaService from "./EmpleadoPoliticaService";
 import asistenciaEmpleadoService from "./AsistenciaEmpleadoService";
 import estudianteModel from "./EstudianteService";
 import plantelService from "./PlantelService";
+import solicitudPasantiaService from "./solicitudPasantiaService";
 
 export {
   userService,
@@ -16,4 +17,5 @@ export {
   asistenciaEmpleadoService,
   estudianteModel,
   plantelService,
+  solicitudPasantiaService
 };

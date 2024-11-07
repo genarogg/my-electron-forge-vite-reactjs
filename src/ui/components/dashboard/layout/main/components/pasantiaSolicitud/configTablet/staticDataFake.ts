@@ -1,4 +1,4 @@
-import SolicitudPasantiaTypes from "./SolicitudPasantiaTypes.js";
+import SolicitudPasantiaTypes from "./SolicitudPasantiaTypes";
 
 const staticDataFakeEmpleado: SolicitudPasantiaTypes[] = [];
 

@@ -13,6 +13,9 @@ import {
   createMadreTableQuery,
   createPadreTableQuery,
 } from "./tablaEstudiante";
+
+import { tablaSolicitudPasantia } from "./tablaSolicitudPasantia";
+
 class DatabaseManager {
   private db: Database;
 
@@ -34,6 +37,7 @@ class DatabaseManager {
     this.createTable(createRepresentanteTableQuery);
     this.createTable(createMadreTableQuery);
     this.createTable(createPadreTableQuery);
+    this.createTable(tablaSolicitudPasantia);
   }
 
   private createTable(query: any) {

@@ -15,9 +15,9 @@ const SolicitudPasantia: React.FC<SolicitudPasantiaTableProps> = ({}) => {
   useEffect(() => {
     const fetchEmpleado = async () => {
       try {
-        electron.ipcRenderer.invoke("pasantia/getSolicitud").then((data) => {
+        electron.ipcRenderer.invoke("pasantia/getSolicitudPasantia").then((data) => {
           if (data.type === "success") {
-            setsolicitudPasante(data.solicitudPasantes);
+            setsolicitudPasante(data.solicitudes);
           }
         });
       } catch (error) {
