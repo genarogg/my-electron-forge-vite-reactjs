@@ -37,6 +37,8 @@ import { MdWorkHistory } from "react-icons/md";
 
 import SolicitudPasantia from "./pasantiaSolicitud/SolicitudPasantia";
 
+import AddSolicitudPasantias from "./pasantiaSolicitud/crud/AddSolicitudPasantias";
+
 const components: any = [
   {
     titleSecction: "inicio",
@@ -132,6 +134,12 @@ const components: any = [
   {
     titleSecction: "otros",
     elements: [
+      {
+        component: AddSolicitudPasantias,
+        context: "agregar solicitud",
+        icon: <FaCalendarAlt />,
+      },
+
       {
         component: AddEmpleado,
         context: "agregar empleado",

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { FaRegEye } from "react-icons/fa6";
-import { FaRegEyeSlash } from "react-icons/fa6";
-
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Icono } from "@nano";
+
 interface InputProps {
   type: string;
   name: string;
@@ -17,6 +16,7 @@ interface InputProps {
   required?: boolean;
   disabled?: boolean;
   className?: string;
+  checked?: boolean; // Nueva propiedad opcional
 }
 
 const Input: React.FC<InputProps> = ({
@@ -33,10 +33,11 @@ const Input: React.FC<InputProps> = ({
   required = true,
   disabled = false,
   className = "",
+  checked, // Nueva propiedad opcional
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasContent, setHasContent] = useState(hasContentState);
-  const [inputType, setInputType] = useState(type); // Nuevo estado para el tipo de entrada
+  const [inputType, setInputType] = useState(type);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHasContent(event.target.value !== "");
@@ -44,7 +45,6 @@ const Input: React.FC<InputProps> = ({
   };
 
   const togglePasswordVisibility = () => {
-    // Nueva función para cambiar la visibilidad de la contraseña
     setInputType(inputType === "password" ? "text" : "password");
   };
 
@@ -61,7 +61,7 @@ const Input: React.FC<InputProps> = ({
       )}
 
       <input
-        type={inputType} // Usar inputType en lugar de type
+        type={inputType}
         name={name}
         required={required}
         disabled={disabled}
@@ -72,9 +72,10 @@ const Input: React.FC<InputProps> = ({
         value={value as string | number | readonly string[] | undefined}
         {...(min ? { min } : {})}
         {...(max ? { max } : {})}
+        {...(checked !== undefined ? { checked } : {})} // Manejar la propiedad checked
       />
 
-      {type === "password" && ( // Si el tipo es password, mostrar el botón
+      {type === "password" && (
         <button
           className="view-pass"
           type="button"
