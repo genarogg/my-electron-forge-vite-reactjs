@@ -64,6 +64,16 @@
     background-color: $color-quaternary;
     right: 0;
   }
+
+  .ag-header-cell-text,.ag-header-group-text{
+    color: #333;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .ag-header-container{
+    background-color: $color-quinary;
+  }
 }
 
 @media (max-height: 1000px) {

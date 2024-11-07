@@ -31,6 +31,10 @@ import AddUsuario from "./usuarios/crud/AddUsuario";
 
 import Plantel from "./institucion/Plantel";
 import { BiSolidInstitution } from "react-icons/bi";
+
+import { BiNetworkChart } from "react-icons/bi";
+import { MdWorkHistory } from "react-icons/md";
+
 const components: any = [
   {
     titleSecction: "inicio",
@@ -51,6 +55,23 @@ const components: any = [
         component: Usuario,
         context: "Usuarios",
         icon: <FaUsers />,
+      },
+    ],
+  },
+  {
+    titleSecction: "Pasantias",
+    elements: [
+      {
+        component: Inicio,
+        context: "solicitud",
+        icon: <BiNetworkChart />,
+
+      },
+
+      {
+        component: Usuario,
+        context: "inscripcion",
+        icon: <MdWorkHistory />,
       },
     ],
   },
