@@ -5,7 +5,7 @@ const addSolicitudPasantia = ipcMain.handle(
   "solicitud/addSolicitudPasantia",
   async (event, data) => {
     event.defaultPrevented;
-    console.warn("LLEGUE AQUI");
+
 
     try {
       console.log("data", data);
@@ -37,9 +37,9 @@ const addSolicitudPasantia = ipcMain.handle(
         sintesisCurricular,
         aprobado,
         motivo,
-      } = data;
+      } = data.solicitud;
 
-      await solicitudPasantiaService.createSolicitudPasantia(
+      solicitudPasantiaService.createSolicitudPasantia(
         nombreEmpresa,
         direccionEmpresa,
         puntoDeReferencia,

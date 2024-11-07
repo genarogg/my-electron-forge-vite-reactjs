@@ -63,6 +63,8 @@ const AddSolicitudPasantias: React.FC<AddSolicitudPasantiasProps> = () => {
       usuario: state.email,
     };
 
+    
+
     electron.ipcRenderer
       .invoke("solicitud/addSolicitudPasantia", newData)
       .then((result) => {
