@@ -33,7 +33,6 @@ import Plantel from "./institucion/Plantel";
 import { BiSolidInstitution } from "react-icons/bi";
 
 import { BiNetworkChart } from "react-icons/bi";
-import { MdWorkHistory } from "react-icons/md";
 
 import SolicitudPasantia from "./pasantiaSolicitud/SolicitudPasantia";
 
@@ -62,23 +61,7 @@ const components: any = [
       },
     ],
   },
-  {
-    titleSecction: "Pasantias",
-    elements: [
-      {
-        component: SolicitudPasantia,
-        context: "solicitud",
-        icon: <BiNetworkChart />,
 
-      },
-
-      {
-        component: Usuario,
-        context: "inscripcion",
-        icon: <MdWorkHistory />,
-      },
-    ],
-  },
   {
     titleSecction: "Empleados",
     elements: [
@@ -114,6 +97,19 @@ const components: any = [
         icon: <FaUserGraduate />,
       },
     ],
+  }, 
+  {
+    titleSecction: "Pasantias",
+    elements: [
+      {
+        component: SolicitudPasantia,
+        context: "solicitud",
+        icon: <BiNetworkChart />,
+
+      }
+
+
+    ],
   },
   {
     titleSecction: "bitacora",
@@ -131,6 +127,7 @@ const components: any = [
       },
     ],
   },
+
   {
     titleSecction: "otros",
     elements: [
