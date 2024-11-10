@@ -21,8 +21,6 @@ const registrarEntrada = ipcMain.handle("asistencia", async (event, data) => {
   const { ci, comentario } = data.formData;
   const { tipoAction } = data;
 
-  console.log("data", data);
-
   const empleado = await empleadoService.getEmpleadoByCI(ci);
 
   if (!empleado) {
@@ -39,7 +37,7 @@ const registrarEntrada = ipcMain.handle("asistencia", async (event, data) => {
     if (comentario === "" && (horaActual > horasEntrada[tipoEmpleado])) {
       return { message: "No se puede registrar la entrada después de la hora permitida", type: "error" };
     }
-    await asistenciaEmpleadoService.updateHoraEntradaByCI(ci, `${tipoAction}: ${comentario}`);
+    asistenciaEmpleadoService.updateHoraEntradaByCI(ci, `${tipoAction}: ${comentario}`);
     return { message: "Registro de entrada correcto", type: "success" };
   }
 
@@ -51,7 +49,7 @@ const registrarEntrada = ipcMain.handle("asistencia", async (event, data) => {
     if (comentario === "" && (horaActual < "12:00:00" || horaActual > "13:00:00")) {
       return { message: "No se puede registrar la hora de almuerzo fuera del rango permitido", type: "error" };
     }
-    await asistenciaEmpleadoService.updateHoraAlmuerzoByCI(ci, `${tipoAction}: ${comentario}`);
+    asistenciaEmpleadoService.updateHoraAlmuerzoByCI(ci, `${tipoAction}: ${comentario}`);
     return { message: "Registro de hora de almuerzo correcto", type: "success" };
   }
 
@@ -59,7 +57,7 @@ const registrarEntrada = ipcMain.handle("asistencia", async (event, data) => {
     if (comentario === "" && (horaActual < horasSalida[tipoEmpleado])) {
       return { message: "No se puede registrar la salida antes de la hora de entrada", type: "error" };
     }
-    await asistenciaEmpleadoService.updateHoraSalidaByCI(ci, `${tipoAction}: ${comentario}`);
+    asistenciaEmpleadoService.updateHoraSalidaByCI(ci, `${tipoAction}: ${comentario}`);
     return { message: "Registro de salida correcto", type: "success" };
   }
 

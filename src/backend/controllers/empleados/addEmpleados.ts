@@ -47,6 +47,8 @@ const addEmpleado = ipcMain.handle(
         politica.tipo_voto
       );
 
+      console.log("Empleado agregado correctamente:", usuario);
+
       // @Bitacora
       bitacoraService.createBitacora({
         usuario: usuario,

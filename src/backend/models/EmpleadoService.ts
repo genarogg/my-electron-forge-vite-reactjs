@@ -1,4 +1,5 @@
 import dbManager from "@dbManager";
+import moment from "moment";
 
 class EmpleadoService {
   private db: any;
@@ -115,14 +116,15 @@ class EmpleadoService {
 
   // Obtener el empleado por ci
   public getEmpleadoByCI(ci: number) {
+    const fecha = moment().format("YYYY-MM-DD");
     const selectQuery = `
-      SELECT * FROM empleado WHERE ci = ?;
+      SELECT * FROM empleado WHERE ci = ? AND fecha = ?;
     `;
 
     try {
-      return this.db.get(selectQuery, [ci]);
+      return this.db.get(selectQuery, [ci, fecha]);
     } catch (error) {
-      console.error("Error al obtener el empleado por ci:", error);
+      console.error("Error al obtener el empleado por ci y fecha:", error);
     }
   }
 

@@ -9,6 +9,7 @@ interface AsistenciaTypes {
   hora_almuerzo?: string;
   hora_salida?: string;
   vino?: string;
+  comentario?: string;
 }
 
 export default AsistenciaTypes;

@@ -65,6 +65,12 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
     filter: true,
     width: 150,
   },
+  {
+    headerName: "Comentario",
+    field: "comentario",
+    filter: true,
+    width: 150,
+  },
 ];
 
 export default empleadoColumnDefs;

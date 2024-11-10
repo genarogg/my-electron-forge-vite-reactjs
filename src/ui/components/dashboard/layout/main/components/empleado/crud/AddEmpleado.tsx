@@ -71,6 +71,10 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
     tipo_voto: "",
   });
 
+  const [formDataEmpleado, setFormDataEmpleado] = useState({
+    tipo_empleado: "",
+  });
+
   const estatusData = [
     { value: "Activo", label: "Activo" },
     { value: "Inactivo", label: "Inactivo" },
@@ -87,8 +91,18 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
     { value: "NULO ", label: "NULO " },
   ];
 
-  const { state, handleChangeContext } = useSimpleNav();
+  const tipoEmpleado = [
+    { value: "docentes", label: "Docente" },
+    { value: "administrativos", label: "Administrativo" },
+    { value: "obreros", label: "Obrero" },
+    { value: "cocineros", label: "Cocinero" },
+  ];
 
+  
+
+
+  const { state, handleChangeContext } = useSimpleNav();
+  console.log("formData", state.sub_context);
   console.log("state", state);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -97,7 +111,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
     const newData = {
       empleado: { ...formData },
       politica: { ...formDataPolitica },
-      tipo_empleado: state.sub_context,
+      tipo_empleado: formDataEmpleado.tipo_empleado || state.sub_context,
       usuario: state.email,
     };
 
@@ -112,7 +126,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
         notify({ message: result.message, type: result.type });
         handleChangeContext(state.sub_context, "");
       })
-      .finally(() => {});
+      .finally(() => { });
   };
 
   return (
@@ -457,6 +471,23 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
                   centro_votacion: e.target.value,
                 })
               }
+            />
+          </div>
+
+          <div className="container-tipo-empleado">
+            <div className="title">
+              <h4>tipo de empleado </h4>
+            </div>
+            <SelectInput
+              icono={<FaSlidersH />}
+              placeholder="Tipo de Empleado"
+              content={true}
+              name="tipo_empleado"
+              value={formDataEmpleado.tipo_empleado}
+              valueChange={(e: any) =>
+                setFormDataEmpleado({ ...formDataEmpleado, tipo_empleado: e.value })
+              }
+              options={tipoEmpleado}
             />
           </div>
 
