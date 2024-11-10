@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Input } from "@form";
+import { Input, TextArea } from "@form";
 import { BtnSubmitBasic } from "@btn";
 import { notify } from "@nano";
-import { BsEnvelopeFill } from "react-icons/bs";
 
 import { useSimpleNav } from "@components/state/useSimpleNav";
 import { HiIdentification } from "react-icons/hi2";
@@ -16,6 +15,7 @@ interface AddAsistenciaProps {
 const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
   const [formData, setFormData] = useState({
     ci: "",
+    comentario: "", // Añadir comentario al estado
   });
 
   const { handleChangeContext } = useSimpleNav();
@@ -28,7 +28,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
         .invoke(`asistencia`, { formData, tipoAction })
         .then((data) => {
           if (data.type === "success") {
-            setFormData({ ci: "" });
+            setFormData({ ci: "", comentario: "" }); // Resetear comentario
             notify({ message: data.message, type: data.type });
             handleChangeContext("Asistencia", "");
             fn();
@@ -61,6 +61,17 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
             value={formData.ci}
             valueChange={(e) =>
               setFormData({ ...formData, ci: e.target.value })
+            }
+          />
+
+          <TextArea
+            required={false}
+            placeholder="comentario"
+            name="comentario"
+            className="comentario"
+            value={formData.comentario}
+            valueChange={(e) =>
+              setFormData({ ...formData, comentario: e.target.value })
             }
           />
 

@@ -8,7 +8,9 @@ const getAsistencia = ipcMain.handle(
     console.log("data", data);
 
     try {
-      const asistencias = await asistenciaEmpleadoService.getAllAsistenciaEmpleado();
+      let asistencias = await asistenciaEmpleadoService.getAllAsistenciaEmpleado();
+
+      asistencias = asistencias.filter((asistencia: any) => asistencia.hora_entrada !== '00:00:00');
 
       if (!asistencias) {
         return {

@@ -11,8 +11,8 @@ class AsistenciaEmpleadoService {
   // Método para crear una nueva entrada en asistencia_empleado
   public createAsistenciaEmpleado(data: any) {
     const insertQuery = `
-      INSERT INTO asistencia_empleado (personal_id, nombres, apellidos, ci, fecha, hora_entrada, hora_almuerzo, hora_salida, vino)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+      INSERT INTO asistencia_empleado (personal_id, nombres, apellidos, ci, fecha, hora_entrada, hora_almuerzo, hora_salida, comentario, vino)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     `;
 
     const fecha = moment().format("YYYY-MM-DD");
@@ -27,6 +27,7 @@ class AsistenciaEmpleadoService {
         data.hora_entrada || "00:00:00",
         data.hora_almuerzo || "00:00:00",
         data.hora_salida || "00:00:00",
+        data.comentario || "",
         data.vino || "NO",
       ]);
     } catch (error) {
@@ -93,11 +94,12 @@ class AsistenciaEmpleadoService {
     fecha: string,
     hora_entrada: string,
     hora_salida: string,
+    comentario: string,
     vino: string
   ) {
     const updateQuery = `
       UPDATE asistencia_empleado
-      SET personal_id = ?, nombres = ?, apellidos = ?, ci = ?, fecha = ?, hora_entrada = ?, hora_salida = ?, vino = ?, updated_at = CURRENT_TIMESTAMP
+      SET personal_id = ?, nombres = ?, apellidos = ?, ci = ?, fecha = ?, hora_entrada = ?, hora_salida = ?, comentario = ?, vino = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?;
     `;
 
@@ -110,6 +112,7 @@ class AsistenciaEmpleadoService {
         fecha,
         hora_entrada,
         hora_salida,
+        comentario,
         vino,
         id,
       ]);
@@ -122,59 +125,59 @@ class AsistenciaEmpleadoService {
   }
 
   // Método para actualizar la hora de entrada por CI
-  public updateHoraEntradaByCI(ci: string) {
+  public updateHoraEntradaByCI(ci: string, comentario: string) {
     const hora_entrada = moment().format("HH:mm:ss");
     const vino = "SI"; // Asumiendo que si se actualiza la hora de entrada, el empleado vino
 
     const updateQuery = `
       UPDATE asistencia_empleado
-      SET hora_entrada = ?, vino = ?, updated_at = CURRENT_TIMESTAMP
+      SET hora_entrada = ?, vino = ?, comentario = ?, updated_at = CURRENT_TIMESTAMP
       WHERE ci = ?;
     `;
 
     try {
-      this.db.run(updateQuery, [hora_entrada, vino, ci]);
+      this.db.run(updateQuery, [hora_entrada, vino, comentario, ci]);
     } catch (error) {
       console.error(
-        "Error al actualizar la hora de entrada y vino en asistencia_empleado:",
+        "Error al actualizar la hora de entrada, vino y comentario en asistencia_empleado:",
         error
       );
     }
   }
 
   // Método para actualizar la hora de almuerzo por CI
-public updateHoraAlmuerzoByCI(ci: string) {
-  const hora_almuerzo = moment().format("HH:mm:ss");
-  const updateQuery = `
-    UPDATE asistencia_empleado
-    SET hora_almuerzo = ?, updated_at = CURRENT_TIMESTAMP
-    WHERE ci = ?;
-  `;
-
-  try {
-    this.db.run(updateQuery, [hora_almuerzo, ci]);
-  } catch (error) {
-    console.error(
-      "Error al actualizar la hora de almuerzo en asistencia_empleado:",
-      error
-    );
-  }
-}
-
-  // Método para actualizar la hora de salida por CI
-  public updateHoraSalidaByCI(ci: string) {
-    const hora_salida = moment().format("HH:mm:ss");
+  public updateHoraAlmuerzoByCI(ci: string, comentario: string) {
+    const hora_almuerzo = moment().format("HH:mm:ss");
     const updateQuery = `
       UPDATE asistencia_empleado
-      SET hora_salida = ?, updated_at = CURRENT_TIMESTAMP
+      SET hora_almuerzo = ?, comentario = ?, updated_at = CURRENT_TIMESTAMP
       WHERE ci = ?;
     `;
 
     try {
-      this.db.run(updateQuery, [hora_salida, ci]);
+      this.db.run(updateQuery, [hora_almuerzo, comentario, ci]);
     } catch (error) {
       console.error(
-        "Error al actualizar la hora de salida en asistencia_empleado:",
+        "Error al actualizar la hora de almuerzo y comentario en asistencia_empleado:",
+        error
+      );
+    }
+  }
+
+  // Método para actualizar la hora de salida por CI
+  public updateHoraSalidaByCI(ci: string, comentario: string) {
+    const hora_salida = moment().format("HH:mm:ss");
+    const updateQuery = `
+      UPDATE asistencia_empleado
+      SET hora_salida = ?, comentario = ?, updated_at = CURRENT_TIMESTAMP
+      WHERE ci = ?;
+    `;
+
+    try {
+      this.db.run(updateQuery, [hora_salida, comentario, ci]);
+    } catch (error) {
+      console.error(
+        "Error al actualizar la hora de salida y comentario en asistencia_empleado:",
         error
       );
     }

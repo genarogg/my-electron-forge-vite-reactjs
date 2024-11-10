@@ -11,6 +11,7 @@ export const createAsistenciaEmpleadoTableQuery = SQL`
     hora_entrada TEXT,
     hora_almuerzo TEXT default '00:00:00',
     hora_salida TEXT,
+    comentario TEXT default '',
     vino TEXT default 'NO',
     -- ANADIDO
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
