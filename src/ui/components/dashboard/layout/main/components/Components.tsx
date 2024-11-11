@@ -38,6 +38,8 @@ import SolicitudPasantia from "./pasantiaSolicitud/SolicitudPasantia";
 
 import AddSolicitudPasantias from "./pasantiaSolicitud/crud/AddSolicitudPasantias";
 
+import cartaDeAcceptacionPasantias from "./cartaDeAcceptacionPasantias/CartaDeAcceptacionPasantias";
+
 const components: any = [
   {
     titleSecction: "inicio",
@@ -97,7 +99,7 @@ const components: any = [
         icon: <FaUserGraduate />,
       },
     ],
-  }, 
+  },
   {
     titleSecction: "Pasantias",
     elements: [
@@ -106,7 +108,12 @@ const components: any = [
         context: "solicitud",
         icon: <BiNetworkChart />,
 
-      }
+      },
+      {
+        component: cartaDeAcceptacionPasantias,
+        context: "carta de aceptacion",
+        icon: <BiNetworkChart />,
+      },
 
 
     ],
@@ -153,6 +160,14 @@ const components: any = [
         context: "agregar usuario",
         icon: <FaCalendarAlt />,
       },
+
+      {
+        component: cartaDeAcceptacionPasantias,
+        context: "carta de aceptacion",
+        icon: <FaCalendarAlt />,
+      }
+
+
       /* {
         component: AddAsistencia,
         context: "Asistencia",

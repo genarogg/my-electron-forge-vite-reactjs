@@ -54,20 +54,20 @@ class AsistenciaEmpleadoService {
 
   // Método para obtener una entrada por CI
   public getAsistenciaEmpleadoByCI(ci: string) {
+    const fecha = moment().format("YYYY-MM-DD");
     const selectQuery = `
-      SELECT * FROM asistencia_empleado WHERE ci = ?;
+      SELECT * FROM asistencia_empleado WHERE ci = ? AND DATE(updated_at) = ?;
     `;
-
+  
     try {
-      return this.db.get(selectQuery, [ci]);
+      return this.db.get(selectQuery, [ci, fecha]);
     } catch (error) {
       console.error(
-        "Error al obtener la entrada en asistencia_empleado por CI:",
+        "Error al obtener la entrada en asistencia_empleado por CI y fecha:",
         error
       );
     }
   }
-
   // Método para obtener todas las entradas
   public getAllAsistenciaEmpleado() {
     const selectQuery = `

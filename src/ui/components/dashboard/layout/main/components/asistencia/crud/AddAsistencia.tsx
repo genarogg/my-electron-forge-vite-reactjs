@@ -16,6 +16,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
   const [formData, setFormData] = useState({
     ci: "",
     comentario: "", // Añadir comentario al estado
+    activeComentario: false,
   });
 
   const { handleChangeContext } = useSimpleNav();
@@ -28,7 +29,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
         .invoke(`asistencia`, { formData, tipoAction })
         .then((data) => {
           if (data.type === "success") {
-            setFormData({ ci: "", comentario: "" }); // Resetear comentario
+            setFormData({ ci: "", comentario: "", activeComentario: false }); // Resetear comentario
             notify({ message: data.message, type: data.type });
             handleChangeContext("Asistencia", "");
             fn();
@@ -36,6 +37,7 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
             return;
           }
 
+          setFormData({ ...formData, activeComentario: true }); // Mostrar comentario
           notify({ message: data.message, type: data.type });
         });
     } catch (error) {
@@ -64,16 +66,18 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn, tipoAction }) => {
             }
           />
 
-          <TextArea
-            required={false}
-            placeholder="comentario"
-            name="comentario"
-            className="comentario"
-            value={formData.comentario}
-            valueChange={(e) =>
-              setFormData({ ...formData, comentario: e.target.value })
-            }
-          />
+          {formData.activeComentario &&
+            <TextArea
+              required={false}
+              placeholder="comentario"
+              name="comentario"
+              className="comentario"
+              value={formData.comentario}
+              valueChange={(e) =>
+                setFormData({ ...formData, comentario: e.target.value })
+              }
+            />
+          }
 
           <BtnSubmitBasic text={`registrar ${tipoAction}`} loading={false} />
         </form>

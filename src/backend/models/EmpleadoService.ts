@@ -116,13 +116,13 @@ class EmpleadoService {
 
   // Obtener el empleado por ci
   public getEmpleadoByCI(ci: number) {
-    const fecha = moment().format("YYYY-MM-DD");
+
     const selectQuery = `
-      SELECT * FROM empleado WHERE ci = ? AND fecha = ?;
+      SELECT * FROM empleado WHERE ci = ?;
     `;
 
     try {
-      return this.db.get(selectQuery, [ci, fecha]);
+      return this.db.get(selectQuery, [ci]);
     } catch (error) {
       console.error("Error al obtener el empleado por ci y fecha:", error);
     }
