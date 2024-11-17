@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
-import TopBar from "./components/electron/TopBar/TopBar";
+import TopBar from "./components/electron/topBar/TopBar";
 import Provider from "@provider";
 
 import Login from "./pages/Login";
